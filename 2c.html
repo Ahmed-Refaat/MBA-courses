@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 2c: Vertical Boundaries (Make vs. Buy Decision)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .section-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #a6c0fe 0%, #f68084 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .code-block {
+            background: #f8f9fa;
+            border-left: 4px solid #007bff;
+            padding: 1rem;
+            font-family: 'Courier New', monospace;
+        }
+
+        .sidebar-hidden {
+            width: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .main-full {
+            margin-left: 0;
+        }
+
+        nav a.active {
+            background-color: #374151;
+            border-left: 4px solid #3b82f6;
+        }
+    </style>
+</head>
+
+<body class="text-gray-800 flex min-h-screen">
+    <nav id="sidebar"
+        class="w-1/6 bg-gradient-to-b from-gray-900 to-gray-800 text-white p-3 fixed h-full overflow-y-auto transition-all duration-300 ease-in-out shadow-xl z-10 border-r border-gray-700">
+        <div class="flex justify-between items-center mb-4">
+            <h2 class="text-xl font-bold">Navigation</h2>
+            <button id="sidebar-toggle" class="text-white hover:text-gray-300 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                    </path>
+                </svg>
+            </button>
+        </div>
+        <ul class="space-y-2">
+            <li><a href="#introduction" class="block py-2 px-4 rounded hover:bg-gray-700">Introduction</a></li>
+            <li><a href="#lesson-2c" class="block py-2 px-4 rounded hover:bg-gray-700">Lesson 2c: Vertical
+                    Boundaries</a></li>
+            <li><a href="#detailed-explanation" class="block py-2 px-4 rounded hover:bg-gray-700 pl-6">Detailed
+                    Explanation</a></li>
+            <li><a href="#examples" class="block py-2 px-4 rounded hover:bg-gray-700 pl-6">Examples</a></li>
+            <li><a href="#important-words" class="block py-2 px-4 rounded hover:bg-gray-700 pl-6">Important Words</a>
+            </li>
+            <li><a href="#equations" class="block py-2 px-4 rounded hover:bg-gray-700 pl-6">Equations</a></li>
+            <li><a href="#practical-factors" class="block py-2 px-4 rounded hover:bg-gray-700 pl-6">Practical
+                    Factors</a></li>
+            <li><a href="#problem-questions" class="block py-2 px-4 rounded hover:bg-gray-700">Problem Questions &
+                    Solutions</a></li>
+            <li><a href="#abbreviations-keywords" class="block py-2 px-4 rounded hover:bg-gray-700">Abbreviations &
+                    Keywords</a></li>
+        </ul>
+    </nav>
+    <main id="main" class="flex-1 p-8 overflow-y-auto max-w-4xl mx-auto ml-1/4 transition-all duration-300 ease-in-out">
+        <header class="text-center mb-16 relative" id="introduction">
+            <button id="sidebar-toggle-main"
+                class="absolute left-0 top-0 mt-4 ml-4 text-gray-800 hover:text-gray-600 focus:outline-none lg:hidden">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                </svg>
+            </button>
+            <h1 class="text-5xl font-bold text-gray-800 mb-4 highlight">Lesson 2c: Vertical Boundaries (Make vs. Buy
+                Decision)</h1>
+            <p class="text-xl text-gray-600">This topic addresses one of the most fundamental strategic questions a firm
+                faces: Which activities should we perform ourselves, and which should we outsource to independent firms
+                in the market? The answer defines the firm's vertical boundaries.</p>
+        </header>
+
+        <section class="section-card p-8 mb-12" id="lesson-2c">
+            <h2 class="text-3xl font-semibold mb-6 text-blue-600">Lesson 2c: Vertical Boundaries (Make vs. Buy Decision)
+            </h2>
+            <p class="mb-6 text-lg">This section examines a firm's decision regarding which steps in the vertical
+                production chain to perform internally ("make") versus acquiring from the market ("buy") and the
+                economic factors that drive this choice, particularly transactions costs and relationship-specific
+                assets.</p>
+            <img src="images_2c/vertical_boundaries.jpg" alt="Vertical Boundaries - Make or Buy Decision"
+                class="w-full h-64 object-cover rounded-lg mb-4">
+        </section>
+
+        <section class="section-card p-8 mb-12" id="detailed-explanation">
+            <h2 class="text-3xl font-semibold mb-6 text-blue-600">1. Detailed Explanation</h2>
+            <p class="mb-6 text-lg">The Vertical Chain of Production describes the entire process a product goes
+                through, from raw materials to the final sale to the consumer. Early steps are called upstream (e.g.,
+                extracting oil), and later steps are called downstream (e.g., running a gas station).</p>
+            <p class="mb-6 text-lg">The Make-or-Buy Decision is the choice a firm makes at each step of this chain:</p>
+            <ul class="list-disc list-inside mb-6 space-y-2">
+                <li><strong>"Make" (Vertical Integration):</strong> The firm performs the activity in-house. This means
+                    owning and controlling that part of the production process. If a firm expands its ownership to
+                    control earlier steps in the chain, it's called backward integration. If it expands to control later
+                    steps, it's called forward integration.</li>
+                <li><strong>"Buy" (Using the Market/Outsourcing):</strong> The firm purchases the good or service from
+                    an independent firm.</li>
+            </ul>
+            <p class="mb-6 text-lg">The decision is not simply about what is cheapest on paper; it is a complex
+                strategic choice that involves balancing costs, capabilities, and risks. The framework for this decision
+                rests on comparing the benefits and costs of using the market versus the benefits and costs of vertical
+                integration.</p>
+
+            <h3 class="text-2xl font-semibold mb-4 text-green-600">A. Reasons to "Buy" (Use the Market)</h3>
+            <img src="images_2c/market_vs_make.jpg" alt="Market vs Make Decision - Outsourcing Benefits"
+                class="w-full h-48 object-cover rounded-lg mb-4">
+            <p class="mb-4">Market firms (specialized suppliers) often have significant advantages that make "buying"
+                the better choice.</p>
+            <ul class="list-disc list-inside mb-4 space-y-2">
+                <li><strong>Exploiting Economies of Scale and Learning Curves:</strong> This is the most powerful
+                    argument for using the market. A specialized supplier, like a tire manufacturer, produces for many
+                    different car companies. By aggregating this demand, it can achieve a much larger scale of
+                    production (the Minimum Efficient Scale) and a steeper learning curve than a single car company
+                    could by making its own tires. This results in substantially lower per-unit costs.</li>
+                <li><strong>Market Discipline:</strong> Competition in the open market forces suppliers to be efficient,
+                    innovative, and cost-conscious. An internal division of a large company does not face this same
+                    competitive pressure. It has a guaranteed "customer" (its parent company) and can become complacent,
+                    inefficient, and less innovative over time, a problem known as "bureaucratic slack."</li>
+            </ul>
+
+            <h3 class="text-2xl font-semibold mb-4 text-red-600">B. Reasons to "Make" (Vertically Integrate)</h3>
+            <p class="mb-4">While the market offers efficiency, it is not costless or frictionless. The costs of using
+                the market are called Transaction Costs. When these costs are high, it becomes more attractive to
+                "make."</p>
+            <ul class="list-disc list-inside mb-4 space-y-2">
+                <li><strong>High Transaction Costs:</strong> These are the "hidden" costs of doing business with an
+                    outside firm, including:
+                    <img src="images_2c/transaction_costs.jpg" alt="Transaction Costs - Hidden Costs of Outsourcing"
+                        class="w-full h-48 object-cover rounded-lg mb-4">
+                    <ul class="list-disc list-inside ml-6 space-y-1">
+                        <li>The time and expense of searching for suppliers.</li>
+                        <li>Negotiating and writing complex contracts.</li>
+                        <li>Monitoring the supplier's quality and performance.</li>
+                        <li>Enforcing contracts if a dispute arises.</li>
+                    </ul>
+                    If these costs become too burdensome, performing the activity in-house can be simpler and cheaper.
+                </li>
+                <li><strong>The Hold-Up Problem & Relationship-Specific Assets:</strong> This is the most critical
+                    reason for vertical integration.
+                    <img src="images_2c/hold_up_problem.jpg" alt="Hold-Up Problem - Contract Negotiation Risks"
+                        class="w-full h-48 object-cover rounded-lg mb-4">
+                    <p class="mb-2">A Relationship-Specific Asset is an investment made to support a particular
+                        transaction that has little value outside of that specific relationship. For example, a supplier
+                        buys a unique mold that can only produce a custom-designed component for a single client, like
+                        Boeing. This investment is now a sunk cost tied to the Boeing relationship.</p>
+                    <p class="mb-2">The Hold-Up Problem arises after this investment is made. The client (Boeing) now
+                        has leverage. They can demand a lower price, knowing the supplier is "stuck" with the investment
+                        and cannot easily sell the component to anyone else. The supplier is vulnerable to being "held
+                        up."</p>
+                    <p class="mb-2"><strong>Consequence:</strong> Fearing this, a rational supplier might refuse to make
+                        the best-possible investment in the first place, leading to lower quality or higher costs for
+                        everyone. To avoid this entire problem and encourage the necessary specific investment, the firm
+                        may choose to make the component itself (vertically integrate).</p>
+                </li>
+                <li><strong>Coordination and Quality Control:</strong> For complex products that require a perfect fit
+                    and precise timing between components (e.g., an aircraft engine), relying on outside suppliers can
+                    be risky. Bringing production in-house gives a firm direct control over quality, scheduling, and
+                    design, ensuring all the pieces fit together seamlessly.</li>
+                <li><strong>Protecting Proprietary Information:</strong> Outsourcing a critical process might mean
+                    sharing trade secrets or proprietary technology with a supplier. This creates a risk that the
+                    supplier could leak that information to competitors or become a competitor themselves in the future.
+                </li>
+            </ul>
+        </section>
+
+        <section class="section-card p-8 mb-12" id="examples">
+            <h2 class="text-3xl font-semibold mb-6 text-blue-600">2. Examples</h2>
+
+            <h3 class="text-2xl font-semibold mb-4 text-green-600">Examples of the "Make" Decision (Vertical
+                Integration):</h3>
+            <ul class="list-disc list-inside mb-6 space-y-2">
+                <li><strong>Boeing:</strong> As detailed in the article "Plane Makers Want a Bigger Part of Parts,"
+                    Boeing has been moving to produce more of its own components in-house. The reasons are a perfect
+                    illustration of the theory: to reduce the power of large, consolidated suppliers (avoiding the
+                    hold-up problem), to gain more control over the quality and timing of critical parts, and to capture
+                    more of the profit from the lucrative aftermarket for spare parts.</li>
+                <li><strong>Tesla:</strong> Tesla is famously vertically integrated. It not only designs its cars but
+                    also produces its own batteries (a relationship-specific asset), develops its own software, and
+                    sells its cars through its own showrooms (forward integration). This gives Tesla unparalleled
+                    control over its technology, quality, and customer experience, which it views as a key competitive
+                    advantage.</li>
+            </ul>
+
+            <h3 class="text-2xl font-semibold mb-4 text-red-600">Examples of the "Buy" Decision (Outsourcing):</h3>
+            <ul class="list-disc list-inside mb-6 space-y-2">
+                <li><strong>Apple and Foxconn:</strong> This is the classic modern example. Apple's core competencies
+                    are design, software development, and marketing. It "buys" manufacturing services from Foxconn,
+                    which has enormous economies of scale in electronics assembly. This allows Apple to remain lean and
+                    focus on what it does best.</li>
+                <li><strong>J.C. Penney and TAL Apparel:</strong> The article "Made to Measure: Invisible Supplier Has
+                    Penney's Shirts All Buttoned Up" shows a sophisticated "buy" relationship. Penney doesn't just buy
+                    shirts from TAL; it outsources its entire inventory management for dress shirts. TAL uses
+                    point-of-sale data from Penney's stores to decide how many shirts to make and ships them directly to
+                    each store. Penney benefits from TAL's specialized expertise and efficiency, reducing its own
+                    inventory costs to zero.</li>
+                <li><strong>Example of the Hold-Up Problem:</strong> General Motors and Fisher Body (1920s): This is a
+                    historical textbook case. Fisher Body was the sole supplier of car bodies to GM. As demand for cars
+                    boomed, GM worried that Fisher Body would use its monopoly position to "hold them up" by raising
+                    prices. To eliminate this risk, GM acquired Fisher Body in 1926, vertically integrating its supply
+                    chain.</li>
+            </ul>
+        </section>
+
+        <section class="section-card p-8 mb-12" id="important-words">
+            <h2 class="text-3xl font-semibold mb-6 text-blue-600">3. Important Words and Their Meanings</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                    <ul class="space-y-4">
+                        <li><strong class="text-purple-600">Vertical Integration:</strong> The combination in one
+                            company of two or more stages of production normally operated by separate companies.</li>
+                        <li><strong class="text-purple-600">Make-or-Buy Decision:</strong> A firm's strategic choice
+                            between producing an item in-house or buying it from an outside supplier.</li>
+                        <li><strong class="text-purple-600">Vertical Chain:</strong> The sequence of stages in the
+                            production process, from the initial sourcing of raw materials to the final sale to the
+                            consumer.</li>
+                        <li><strong class="text-purple-600">Upstream / Downstream:</strong> Terms describing the
+                            position in the vertical chain. Upstream activities happen earlier in the process (e.g., raw
+                            materials); downstream activities happen later (e.g., retail).</li>
+                        <li><strong class="text-purple-600">Transaction Costs:</strong> The costs associated with using
+                            the market, including search, negotiation, contracting, monitoring, and enforcement costs.
+                        </li>
+                        <li><strong class="text-purple-600">Relationship-Specific Asset:</strong> An investment that is
+                            significantly more valuable in a specific relationship than it would be in any alternative
+                            use.</li>
+                        <li><strong class="text-purple-600">Hold-Up Problem:</strong> A situation where one party to a
+                            contract exploits the other party's relationship-specific investment to renegotiate the
+                            terms in their favor.</li>
+                        <li><strong class="text-purple-600">Quasi-Rent:</strong> The extra profit a firm gets from using
+                            an asset in a specific relationship compared to the profit it would get from its next-best
+                            alternative use. It represents what the firm stands to lose if the relationship ends, making
+                            it vulnerable to a hold-up.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-card p-8 mb-12" id="equations">
+            <h2 class="text-3xl font-semibold mb-6 text-blue-600">4. Equations and How to Calculate</h2>
+
+            <h3 class="text-2xl font-semibold mb-4 text-green-600">Conceptual Framework: Net Economic Value (NEV)</h3>
+            <p class="mb-4">The decision can be framed as a cost-benefit analysis. A firm should choose the option with
+                the higher net value.</p>
+            <div class="code-block mb-4">
+                <strong>Formula:</strong> NEV(Make vs. Buy) = (Value from Buying - Costs of Buying) - (Value from Making
+                - Costs of Making)
+            </div>
+            <p class="mb-4"><strong>Costs of Buying (Market Costs):</strong> Price Paid to Supplier + Transaction Costs
+            </p>
+            <p class="mb-4"><strong>Costs of Making (Internal Costs):</strong> Internal Production Cost +
+                Bureaucratic/Agency Costs</p>
+            <p class="mb-4">The decision becomes complex because Transaction Costs and Bureaucratic Costs are hard to
+                quantify. The Hold-Up Problem can be thought of as a major potential Transaction Cost.</p>
+
+            <h3 class="text-2xl font-semibold mb-4 text-green-600">Calculating Quasi-Rent (The Stake in a Hold-Up)</h3>
+            <p class="mb-4">This formula helps quantify a firm's vulnerability to a hold-up.</p>
+            <div class="code-block mb-4">
+                <strong>Formula:</strong> Quasi-Rent = Profit from the best-case use (the specific relationship) -
+                Profit from the next-best alternative use
+            </div>
+            <p class="mb-4"><strong>How to Use It:</strong> A large quasi-rent indicates a high degree of asset
+                specificity and a high risk of a hold-up.</p>
+            <p class="mb-4"><strong>Calculation Example:</strong></p>
+            <div class="code-block mb-4">
+                A supplier invests in equipment to make custom parts for Ford. If the Ford contract proceeds as planned,
+                the supplier will earn a profit of $5 million.<br>
+                If Ford backs out of the deal at the last minute, the supplier can re-tool its equipment and sell
+                generic parts on the open market, but it will only earn a profit of $500,000.<br>
+                The supplier's quasi-rent is:<br>
+                Quasi-Rent = $5,000,000 - $500,000 = $4,500,000<br>
+                <strong>Interpretation:</strong> The supplier has $4.5 million at stake in this specific relationship.
+                This is the maximum amount it stands to lose if it gets "held up" by Ford trying to renegotiate the
+                price. Because this amount is so large, the supplier faces significant risk, and vertical integration
+                (Ford making the parts itself) might be a more efficient solution for the industry.
+            </div>
+        </section>
+
+        <section class="section-card p-8 mb-12" id="practical-factors">
+            <h2 class="text-3xl font-semibold mb-6 text-blue-600">Practical Factors Influencing Vertical Boundaries</h2>
+            <img src="images_2c/practical_factors.jpg" alt="Practical Factors - Business Strategy Considerations"
+                class="w-full h-48 object-cover rounded-lg mb-4">
+            <p class="mb-4">The decision to make (integrate) or buy (use the market) is also driven by practical
+                considerations:</p>
+
+            <h3 class="text-2xl font-semibold mb-4 text-green-600">Reasons to "Buy" (Market Usage):</h3>
+            <p class="mb-4">Firms may choose to buy inputs to exploit scale or learning economies achieved by
+                independent suppliers. For instance, if an input is subject to significant economies of scale, a
+                dedicated supplier like Goodyear (making 120 million tires) is better positioned to capture those
+                efficiencies than a firm like Toyota (needing 40 million) making them only for internal use. Using the
+                market also imposes discipline; competition forces suppliers to remain efficient.</p>
+
+            <h3 class="text-2xl font-semibold mb-4 text-red-600">Reasons to "Make" (Integration):</h3>
+            <ul class="list-disc list-inside mb-4 space-y-2">
+                <li><strong>Reliability of Supply:</strong> If external supply is unreliable (e.g., a specific hop type
+                    versus generic corn), integration may be preferred.</li>
+                <li><strong>Quality Control:</strong> If quality is unreliable or difficult to measure (e.g., an
+                    accounting audit versus a visible piece of furniture), integration might be a solution. Companies
+                    like Matsushita integrated supervision by paying for a dedicated furnace to ensure quality of steel
+                    blocks for their compressors.</li>
+                <li><strong>Physical Production Efficiencies:</strong> Some modern processes benefit from
+                    "cheek-to-jowl" production and joint ownership, such as combining molten aluminum processing with
+                    downstream fabrication to avoid heating and cooling materials multiple times.</li>
+                <li><strong>Capturing Value/Profit:</strong> Corporations sometimes integrate upstream to insulate
+                    themselves from commodity price fluctuations (ArcelorMittal buying iron-ore mines) or downstream to
+                    capture higher profit margins associated with specialized parts and lucrative service revenue
+                    (Boeing and Airbus making more parts in-house due to supplier consolidation).</li>
+            </ul>
+
+            <h3 class="text-2xl font-semibold mb-4 text-purple-600">Analogy:</h3>
+            <p class="mb-4">The Vertical Boundaries decision is like deciding whether to make a specialized tool in your
+                garage versus buying one from a professional hardware store. If the tool is generic (low specificity,
+                high scale economies in production, like a simple screwdriver), you buy it because the market is
+                efficient and cheap (low transaction costs, high scale benefits). If the tool is highly specialized
+                (high asset specificity, critical to your task, like a unique stamping die only useful for your
+                product), you might make it yourself. This is because if you relied on a supplier, they would incur high
+                risk (if the relationship fails) or they might "hold up" your project once you've committed to their
+                specialized output, making the tool-making transaction costs too high.</p>
+        </section>
+
+        <section class="section-card p-8 mb-12" id="problem-questions">
+            <h2 class="text-3xl font-semibold mb-6 text-blue-600">Lesson 2c: Problem Questions and Solutions</h2>
+
+            <div class="mb-8">
+                <h3 class="text-2xl font-semibold mb-4 text-green-600">5) Explain why most car companies produce their
+                    own engines but buy mirrors from independent suppliers. (16 points)</h3>
+                <p class="mb-4"><strong>Question:</strong> Explain why most car companies produce their own engines but
+                    buy mirrors from independent suppliers. (16 points)</p>
+                <div class="bg-gray-50 p-4 rounded-lg mb-4">
+                    <h4 class="text-lg font-semibold mb-2 text-blue-600">Solution:</h4>
+                    <p class="mb-4">This decision is based on the concepts of core competency, asset specificity, and
+                        transaction costs. Car companies make engines because they are a core, highly specific
+                        component, while they buy mirrors because they are a standardized, non-core component where
+                        specialized suppliers have a cost advantage.</p>
+
+                    <h5 class="font-semibold text-green-600 mb-2">Why They MAKE Engines:</h5>
+                    <ul class="list-disc list-inside mb-4 space-y-1">
+                        <li><strong>Core Competency & Brand Identity:</strong> The engine (or powertrain) is fundamental
+                            to a car's performance, feel, and brand image. It is a key differentiator in the market.
+                            Outsourcing the "heart" of the car would mean giving up a critical source of competitive
+                            advantage.</li>
+                        <li><strong>High Asset Specificity:</strong> Engines are designed specifically for a particular
+                            car model. The tools, machinery, and employee skills required to produce them are highly
+                            specialized and not easily repurposed. This high specificity makes outsourcing risky, as the
+                            car company could become dependent on a single supplier (the "hold-up problem").</li>
+                        <li><strong>Complex Coordination:</strong> The engine's design is deeply integrated with the
+                            car's chassis, transmission, and software. Managing this level of design and engineering
+                            coordination with an outside firm would be extremely complex and costly.</li>
+                    </ul>
+
+                    <h5 class="font-semibold text-red-600 mb-2">Why They BUY Mirrors:</h5>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li><strong>Low Asset Specificity:</strong> While mirrors must fit the car's design, they are
+                            relatively simple, standardized components. Many suppliers can produce them to a given
+                            specification.</li>
+                        <li><strong>Supplier Economies of Scale:</strong> A supplier like Magna or Gentex specializes in
+                            making mirrors for dozens of car companies. They produce at a massive scale, allowing them
+                            to achieve far lower production costs than a single car company could if it produced mirrors
+                            only for its own vehicles.</li>
+                        <li><strong>Low Transaction Costs:</strong> It is easy to write a contract for mirrors, verify
+                            their quality, and switch suppliers if necessary. This makes the transaction simple and
+                            low-risk.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mb-8">
+                <h3 class="text-2xl font-semibold mb-4 text-green-600">6) You are hired as a consultant for a mid-sized
+                    producer of outdoor apparel (backpacks, hiking clothing, etc). Over lunch, the CEO explains to you
+                    "About three years ago, we just started making our own zippers, buttons, and some of the fabrics we
+                    use in our products. So now we keep those profits instead of giving them away to some supplier."
+                    Evaluate this argument. (17 points)</h3>
+                <p class="mb-4"><strong>Question:</strong> You are hired as a consultant for a mid-sized producer of
+                    outdoor apparel (backpacks, hiking clothing, etc). Over lunch, the CEO explains to you "About three
+                    years ago, we just started making our own zippers, buttons, and some of the fabrics we use in our
+                    products. So now we keep those profits instead of giving them away to some supplier." Evaluate this
+                    argument. (17 points)</p>
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <h4 class="text-lg font-semibold mb-2 text-blue-600">Solution:</h4>
+                    <p class="mb-4">The CEO's argument that by making their own components they "keep those profits
+                        instead of giving them away to some supplier" is fundamentally flawed. This is a common business
+                        mistake known as the "make-or-buy fallacy." My evaluation would be to advise the CEO that this
+                        strategy is likely increasing the company's costs, not saving them money.</p>
+
+                    <p class="mb-4">Here is the evaluation of the argument:</p>
+                    <ol class="list-decimal list-inside mb-4 space-y-2">
+                        <li><strong>It Ignores Comparative Advantage and Specialization:</strong> The supplier who makes
+                            zippers and fabrics is a specialist. Through specialization, focused expertise, and
+                            economies of scale (producing for many apparel companies), they can almost certainly produce
+                            these components at a much lower cost than the apparel company can. The apparel company's
+                            core competency is designing and marketing outdoor gear, not manufacturing zippers.</li>
+                        <li><strong>It Confuses the Supplier's Price with the Company's Cost:</strong> The CEO is
+                            assuming that the supplier's profit margin is a direct saving for his company if they
+                            produce the items themselves. However, it is highly probable that the supplier's price
+                            (which includes their profit) is still lower than the apparel company's internal cost of
+                            production. For example, the company might spend $0.80 to make a zipper that a supplier
+                            could sell them for $0.50 (of which $0.10 is the supplier's profit). In this case, the
+                            company is not "keeping the profit"; it is losing $0.30 on every zipper it makes.</li>
+                        <li><strong>It Overlooks Opportunity Cost:</strong> The capital, labor, and factory space now
+                            dedicated to making generic components could have been used to improve the company's core
+                            business—designing better backpacks, developing innovative materials, or expanding its
+                            marketing efforts. The true cost of making the zippers includes the lost opportunity to
+                            invest those resources more profitably elsewhere.</li>
+                    </ol>
+
+                    <p class="mb-4"><strong>Conclusion:</strong> The CEO's decision was likely based on incorrect logic.
+                        The company is probably now spending more to create these components inefficiently than it
+                        previously spent to buy them from an efficient, specialized supplier. The focus should not be on
+                        the supplier's profit but on the total cost. I would advise a "make-or-buy" analysis that
+                        compares the full internal cost of production against the market price from suppliers to
+                        determine the most cost-effective strategy.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-card p-8 mb-12" id="abbreviations-keywords">
+            <h2 class="text-3xl font-semibold mb-6 text-blue-600">Abbreviations & Keywords</h2>
+
+            <h3 class="text-2xl font-semibold mb-4 text-green-600">Lesson 2c: Vertical Boundaries (Make vs. Buy
+                Decision)</h3>
+            <div class="overflow-x-auto mb-8">
+                <table class="w-full table-auto border-collapse border border-gray-300 text-sm">
+                    <thead>
+                        <tr class="bg-gray-100">
+                            <th class="border border-gray-300 p-2">Abbreviation / Symbol</th>
+                            <th class="border border-gray-300 p-2">Meaning</th>
+                            <th class="border border-gray-300 p-2">Relation to Keywords / Equation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="border border-gray-300 p-2">VI</td>
+                            <td class="border border-gray-300 p-2">Vertical Integration</td>
+                            <td class="border border-gray-300 p-2">The firm chooses to "make" the input itself,
+                                performing activities within the firm that are upstream or downstream along the vertical
+                                chain. Examples of firms recently moving toward VI include Oracle, GM, and Boeing.</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 p-2">Make-or-Buy</td>
+                            <td class="border border-gray-300 p-2">Make-or-Buy Decision</td>
+                            <td class="border border-gray-300 p-2">The central question of vertical boundaries: deciding
+                                whether to perform an activity within the firm or purchase it from an independent firm
+                                in the market. This decision exists on a continuum ranging from arm's-length market
+                                transactions (less integrated) to performing activity internally (more integrated).</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 p-2">P *</td>
+                            <td class="border border-gray-300 p-2">Expected Price (or price per unit)</td>
+                            <td class="border border-gray-300 p-2">The price expected from the buyer (e.g., Ford) when
+                                calculating Rent and Quasi-rent in the context of relationship-specific investment
+                                examples.</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 p-2">C</td>
+                            <td class="border border-gray-300 p-2">Cost (specifically variable cost per unit)</td>
+                            <td class="border border-gray-300 p-2">The average variable cost incurred by the supplier
+                                (e.g., cup holder factory). Used in the formula for Rent.</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 p-2">I</td>
+                            <td class="border border-gray-300 p-2">Initial Fixed Investment (sunk cost)</td>
+                            <td class="border border-gray-300 p-2">The irreversible upfront capital expenditure required
+                                for production (e.g., building a specialized factory). Once undertaken, this investment
+                                is a sunk cost.</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 p-2">P '</td>
+                            <td class="border border-gray-300 p-2">Second-Best Price (or price in alternative use)</td>
+                            <td class="border border-gray-300 p-2">The expected unit price the supplier can obtain from
+                                its next-best alternative use if the primary deal fails (e.g., selling cups to jobbers
+                                instead of Ford).</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 p-2">Rent</td>
+                            <td class="border border-gray-300 p-2">Rent (Economic Profit)</td>
+                            <td class="border border-gray-300 p-2">The profit expected from the transaction before the
+                                investment is sunk. Calculated as the total revenue minus total cost, including the cost
+                                of investment (I). Formula used in context: 1,000,000(P * –C)–I.</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 p-2">Quasi−rent</td>
+                            <td class="border border-gray-300 p-2">Quasi-rent</td>
+                            <td class="border border-gray-300 p-2">The extra profit a firm earns above the profit it
+                                could get in its next-best alternative use. Formula used in context: 1,000,000(P * –P
+                                '). Quasi-rents represent the amount subject to opportunistic behavior once an asset is
+                                specialized.</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 p-2">RSI</td>
+                            <td class="border border-gray-300 p-2">Relative Specific Investment</td>
+                            <td class="border border-gray-300 p-2">The proportion of the investment (I) that cannot be
+                                recovered if the primary relationship is terminated. Formula used in context:
+                                RSI=[I−1,000,000(P ' −C)]/I.</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 p-2">FASB</td>
+                            <td class="border border-gray-300 p-2">Financial Accounting Standards Board</td>
+                            <td class="border border-gray-300 p-2">The organization that, as of 2016, was grappling with
+                                updating rules for recognizing the growing importance of intangible assets (like brands,
+                                data, and algorithms). The valuation of intangibles affects the full economic
+                                cost/benefit calculation of integration.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4 class="text-xl font-semibold mb-2 text-purple-600">Keywords</h4>
+            <p class="mb-6">Vertical Chain of Production, Transactions Costs, Relationship-Specific Assets (R-S assets),
+                Forms of Specificity, Holdup Problem, Fundamental Transformation, Practical Factors Influencing Vertical
+                Boundaries</p>
+        </section>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            const sidebar = document.getElementById('sidebar');
+            const main = document.getElementById('main');
+            const toggleBtn = document.getElementById('sidebar-toggle');
+            const toggleMainBtn = document.getElementById('sidebar-toggle-main');
+            const toggleMainIcon = toggleMainBtn.querySelector('svg');
+
+            function toggleSidebar() {
+                sidebar.classList.toggle('sidebar-hidden');
+                main.classList.toggle('main-full');
+                if (sidebar.classList.contains('sidebar-hidden')) {
+                    toggleMainIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
+                } else {
+                    toggleMainIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>';
+                }
+            }
+
+            toggleBtn.addEventListener('click', toggleSidebar);
+            toggleMainBtn.addEventListener('click', toggleSidebar);
+        });
+    </script>
+</body>
+
+</html>

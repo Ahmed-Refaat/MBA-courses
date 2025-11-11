@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBA506: Economics and Market Dynamics - Module 3</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .section-content {
+            display: none;
+        }
+
+        .section-content.active {
+            display: block;
+        }
+
+        .nav-item {
+            transition: all 0.3s ease;
+        }
+
+        .nav-item:hover {
+            background-color: rgba(59, 130, 246, 0.1);
+        }
+
+        .nav-item.active {
+            background-color: rgba(59, 130, 246, 0.2);
+            border-left: 4px solid #3b82f6;
+        }
+
+        .subsection {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .subsection.expanded {
+            max-height: 500px;
+        }
+
+        .equation-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .keyword-card {
+            background: #f8fafc;
+            border-left: 4px solid #3b82f6;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .example-box {
+            background: #fef3c7;
+            border: 1px solid #f59e0b;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <div class="flex h-screen">
+        <!-- Left Navigation Pane -->
+        <div class="w-80 bg-white shadow-lg overflow-y-auto">
+            <div class="p-6 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+                <h1 class="text-xl font-bold">MBA506 Module 3</h1>
+                <p class="text-sm opacity-90">Economics and Market Dynamics</p>
+            </div>
+
+            <nav class="p-4">
+                <!-- Module Introduction -->
+                <div class="mb-4">
+                    <div class="nav-item p-3 rounded-lg cursor-pointer" onclick="showSection('intro')">
+                        <i class="fas fa-home mr-3"></i>Module Introduction
+                    </div>
+                </div>
+
+                <!-- Lesson 3a -->
+                <div class="mb-4">
+                    <div class="nav-item p-3 rounded-lg cursor-pointer font-semibold"
+                        onclick="toggleSubsection('lesson3a')">
+                        <i class="fas fa-chart-line mr-3"></i>Lesson 3a: Market Structure
+                        <i class="fas fa-chevron-down float-right mt-1 transition-transform" id="lesson3a-icon"></i>
+                    </div>
+                    <div id="lesson3a-sub" class="subsection ml-4 mt-2">
+                        <div class="nav-item p-2 rounded cursor-pointer text-sm" onclick="showSection('3a-intro')">
+                            Introduction</div>
+                        <div class="nav-item p-2 rounded cursor-pointer text-sm"
+                            onclick="showSection('3a-competitors')">Competitor Identification</div>
+                        <div class="nav-item p-2 rounded cursor-pointer text-sm" onclick="showSection('3a-perfect')">
+                            Perfect Competition</div>
+                        <div class="nav-item p-2 rounded cursor-pointer text-sm" onclick="showSection('3a-examples')">
+                            Market Examples</div>
+                    </div>
+                </div>
+
+                <!-- Lesson 3b -->
+                <div class="mb-4">
+                    <div class="nav-item p-3 rounded-lg cursor-pointer font-semibold"
+                        onclick="toggleSubsection('lesson3b')">
+                        <i class="fas fa-dollar-sign mr-3"></i>Lesson 3b: Pricing with Market Power
+                        <i class="fas fa-chevron-down float-right mt-1 transition-transform" id="lesson3b-icon"></i>
+                    </div>
+                    <div id="lesson3b-sub" class="subsection ml-4 mt-2">
+                        <div class="nav-item p-2 rounded cursor-pointer text-sm" onclick="showSection('3b-intro')">
+                            Introduction</div>
+                        <div class="nav-item p-2 rounded cursor-pointer text-sm"
+                            onclick="showSection('3b-single-price')">Single Price Strategy</div>
+                        <div class="nav-item p-2 rounded cursor-pointer text-sm"
+                            onclick="showSection('3b-price-discrimination')">Price Discrimination</div>
+                        <div class="nav-item p-2 rounded cursor-pointer text-sm" onclick="showSection('3b-examples')">
+                            Real-World Examples</div>
+                    </div>
+                </div>
+
+                <!-- Lesson 3c -->
+                <div class="mb-4">
+                    <div class="nav-item p-3 rounded-lg cursor-pointer font-semibold"
+                        onclick="toggleSubsection('lesson3c')">
+                        <i class="fas fa-chess mr-3"></i>Lesson 3c: Game Theory
+                        <i class="fas fa-chevron-down float-right mt-1 transition-transform" id="lesson3c-icon"></i>
+                    </div>
+                    <div id="lesson3c-sub" class="subsection ml-4 mt-2">
+                        <div class="nav-item p-2 rounded cursor-pointer text-sm" onclick="showSection('3c-intro')">
+                            Introduction</div>
+                        <div class="nav-item p-2 rounded cursor-pointer text-sm" onclick="showSection('3c-oligopoly')">
+                            Oligopoly Markets</div>
+                        <div class="nav-item p-2 rounded cursor-pointer text-sm"
+                            onclick="showSection('3c-game-theory')">Game Theory Basics</div>
+                        <div class="nav-item p-2 rounded cursor-pointer text-sm"
+                            onclick="showSection('3c-strategic-examples')">Strategic Examples</div>
+                    </div>
+                </div>
+
+                <!-- Keywords & Glossary -->
+                <div class="mb-4">
+                    <div class="nav-item p-3 rounded-lg cursor-pointer" onclick="showSection('glossary')">
+                        <i class="fas fa-book mr-3"></i>Keywords & Glossary
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="flex-1 overflow-y-auto">
+            <div class="p-8">
+                <!-- Module Introduction -->
+                <div id="intro" class="section-content active">
+                    <h1 class="text-4xl font-bold text-gray-800 mb-6">Module 3: Market Structure, Pricing, and Strategic
+                        Interaction</h1>
+
+                    <div class="bg-gradient-to-r from-blue-100 to-purple-100 rounded-lg p-6 mb-8">
+                        <h2 class="text-2xl font-semibold mb-4">Module Overview</h2>
+                        <p class="text-lg text-gray-700 leading-relaxed">
+                            Module 3 focuses on how firms analyze their competitive environment, make strategic pricing
+                            decisions when they possess market power, and engage in competitive interaction. The module
+                            progresses through defining competitors and analyzing markets with intense price
+                            competition, to exploring strategies for firms with market power, and finally examining
+                            decisions dependent on rivals' actions through Game Theory.
+                        </p>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="bg-white rounded-lg shadow-md p-6">
+                            <div class="text-blue-600 text-3xl mb-4">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-2">Lesson 3a</h3>
+                            <p class="text-gray-600">Market Structure and Perfect Competition</p>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-6">
+                            <div class="text-purple-600 text-3xl mb-4">
+                                <i class="fas fa-dollar-sign"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-2">Lesson 3b</h3>
+                            <p class="text-gray-600">Pricing with Market Power</p>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-md p-6">
+                            <div class="text-green-600 text-3xl mb-4">
+                                <i class="fas fa-chess"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-2">Lesson 3c</h3>
+                            <p class="text-gray-600">Economics of Strategy: Game Theory</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lesson 3a Sections -->
+                <div id="3a-intro" class="section-content">
+                    <h1 class="text-4xl font-bold text-gray-800 mb-6">Lesson 3a: Market Structure and Perfect
+                        Competition</h1>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                        Lesson 3a covers Competitors and Competition, beginning with methods for identifying competitors
+                        and defining the relevant market, and concluding with an analysis of the Perfect Competition
+                        market structure model.
+                    </p>
+                </div>
+
+                <div id="3a-competitors" class="section-content">
+                    <h1 class="text-3xl font-bold text-gray-800 mb-6">Competitor Identification and Market Definition
+                    </h1>
+
+                    <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                        Managers must carefully identify their competitors and the features that define their markets. A
+                        firm's competition can vary significantly across different input and output markets, and
+                        geographically.
+                    </p>
+
+                    <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                        <h2 class="text-xl font-semibold mb-4">The Basics of Competitor Identification</h2>
+                        <p class="text-gray-700 mb-4">
+                            Antitrust agencies, such as the U.S. Department of Justice (DOJ), evaluate whether potential
+                            mergers would create enough market power to allow the merged firm to raise prices and earn
+                            excessive profits. The DOJ uses a simple conceptual guideline to identify competitors: a
+                            competitor is a firm whose product significantly constrains a given firm's ability to
+                            increase price.
+                        </p>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                        <h2 class="text-xl font-semibold mb-4">Putting Competitor Identification into Practice</h2>
+                        <p class="text-gray-700 mb-4">
+                            The SSNIP criterion (Small but Significant Non-transitory Increase in Price) is a common
+                            method used to identify competitors, particularly concerning substitutes.
+                        </p>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li><strong>SSNIP Criterion Details:</strong> The criterion suggests that two firms (X and
+                                Y) are direct competitors if a price increase by one causes enough customers to buy the
+                                product of the other to make the price increase unprofitable.</li>
+                            <li><strong>Substitutes:</strong> If products X and Y are substitutes, raising the price of
+                                X will increase the quantity demanded of Y. This relationship can be quantified using
+                                cross-price elasticity of demand.</li>
+                        </ul>
+                    </div>
+
+                    <div class="keyword-card">
+                        <h3 class="font-semibold text-lg mb-2">SSNIP Criterion</h3>
+                        <p><strong>Small but Significant Non-transitory Increase in Price</strong> - A method used to
+                            identify competitors. If a price increase by one firm causes enough customers to switch to
+                            another firm to make the price increase unprofitable, then the two firms are direct
+                            competitors.</p>
+                    </div>
+
+                    <div class="equation-box">
+                        <h3 class="font-semibold mb-2">Cross-Price Elasticity of Demand</h3>
+                        <p class="text-lg">η<sub>Q<sub>X</sub>,P<sub>Y</sub></sub> = % Change in Quantity of X / %
+                            Change in Price of Y</p>
+                        <p class="text-sm mt-2">Positive cross-price elasticity indicates that two goods are
+                            substitutes.</p>
+                    </div>
+
+                    <div class="example-box">
+                        <h3 class="font-semibold text-lg mb-2 flex items-center">
+                            <i class="fas fa-car mr-2 text-yellow-600"></i>Luxury Cars Example
+                        </h3>
+                        <p>When Mercedes began reducing its prices in the early 1990s, the resulting market share loss
+                            for Lexus and Acura led Mercedes to view non-German luxury car brands (Lexus, Cadillac,
+                            Volvo) as competitors.</p>
+                    </div>
+
+                    <div class="example-box">
+                        <h3 class="font-semibold text-lg mb-2 flex items-center">
+                            <i class="fas fa-envelope mr-2 text-yellow-600"></i>Postal Services Example
+                        </h3>
+                        <p>The U.S. Postal Service (USPS) faces competition not just from private delivery services
+                            (like FedEx), but also from electronic alternatives (email, internet) for mail delivery,
+                            demonstrating how substitutes can span different industries.</p>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                        <h2 class="text-xl font-semibold mb-4">Geographic Competitor Identification</h2>
+                        <p class="text-gray-700 mb-4">
+                            Identifying competitors often requires defining the geographic scope of competition.
+                        </p>
+                        <div class="example-box">
+                            <h3 class="font-semibold text-lg mb-2 flex items-center">
+                                <i class="fas fa-store mr-2 text-yellow-600"></i>Sporting Goods Example
+                            </h3>
+                            <p>To identify competitors for Bay City Sports, a sporting goods store in San Francisco, an
+                                analysis of where customers live and shop is necessary to define the relevant trade
+                                area, distinguishing between direct and indirect competitors.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="3a-perfect" class="section-content">
+                    <h1 class="text-3xl font-bold text-gray-800 mb-6">Perfect Competition</h1>
+
+                    <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                        Perfect competition is characterized by features that lead to intense price pressure, driving
+                        prices down toward marginal costs.
+                    </p>
+
+                    <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                        <h2 class="text-2xl font-semibold mb-4">Characteristics of Perfect Competition</h2>
+                        <ul class="space-y-3">
+                            <li class="flex items-center"><i
+                                    class="fas fa-check-circle text-green-500 mr-3"></i><strong>Many sellers:</strong>
+                                There are many sellers.</li>
+                            <li class="flex items-center"><i
+                                    class="fas fa-check-circle text-green-500 mr-3"></i><strong>Homogeneous
+                                    product:</strong> The product is perceived to be homogeneous.</li>
+                            <li class="flex items-center"><i
+                                    class="fas fa-check-circle text-green-500 mr-3"></i><strong>Consumers are price
+                                    perceptive:</strong> Consumers are aware of prices and lack excess capacity.</li>
+                            <li class="flex items-center"><i
+                                    class="fas fa-check-circle text-green-500 mr-3"></i><strong>Easy entry and
+                                    exit:</strong> There are few barriers to entering or leaving the market.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                        <h2 class="text-2xl font-semibold mb-4">Pricing and Profit Outcomes</h2>
+                        <ul class="space-y-3 text-gray-700">
+                            <li><strong>Price Taker:</strong> A firm in perfect competition is a price taker; if it sets
+                                a price above the market price, it sells nothing, and if it sets a price below the
+                                market price, it needlessly sacrifices revenue.</li>
+                            <li><strong>Profit Maximization:</strong> The firm's optimal condition for profit
+                                maximization is when the percentage contribution margin (PCM) is zero. The optimal
+                                short-term price is the marginal cost (P=MC).</li>
+                            <li><strong>Long-Run Equilibrium:</strong> In the long run, firms earn zero economic
+                                profits, with the price equaling average cost (P=AC).</li>
+                        </ul>
+                    </div>
+
+                    <div class="equation-box">
+                        <h3 class="font-semibold mb-2">Profit Maximization in Perfect Competition</h3>
+                        <p class="text-lg">P = MC (Price equals Marginal Cost)</p>
+                        <p class="text-sm mt-2">In the long run: P = AC (Price equals Average Cost)</p>
+                    </div>
+
+                    <div class="equation-box">
+                        <h3 class="font-semibold mb-2">Percentage Contribution Margin</h3>
+                        <p class="text-lg">PCM = (P − MC) / P</p>
+                        <p class="text-sm mt-2">In perfect competition, PCM = 0 for profit maximization.</p>
+                    </div>
+                </div>
+
+                <div id="3a-examples" class="section-content">
+                    <h1 class="text-3xl font-bold text-gray-800 mb-6">Market Dynamics Examples</h1>
+
+                    <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                        These examples illustrate how perfect competition drives prices toward marginal costs and leads
+                        to zero economic profits in the long run.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="example-box">
+                            <h3 class="font-semibold text-lg mb-2 flex items-center">
+                                <i class="fas fa-plane mr-2 text-yellow-600"></i>U.S. Domestic Airline Industry (1990s)
+                            </h3>
+                            <p>The industry experienced ups and downs, declining in the 1990s but recovering in the
+                                mid-1990s. When demand for air travel declined and many carriers had empty seats, the
+                                marginal cost of flying an empty seat was negligible. Carriers slashed prices, resulting
+                                in an industry loss exceeding $4 billion in 1992.</p>
+                        </div>
+
+                        <div class="example-box">
+                            <h3 class="font-semibold text-lg mb-2 flex items-center">
+                                <i class="fas fa-battery-half mr-2 text-yellow-600"></i>Cobalt and Lithium Markets
+                            </h3>
+                            <p>These metals, essential for electric-vehicle batteries, are treated as commodities.
+                                Investors anticipated supply shortages, driving prices up in 2017. However, the rush by
+                                miner companies to capitalize on excitement led to steady production and a tumble in
+                                prices starting in 2018, illustrating that robust supply can quickly undermine price
+                                surges in commodity markets. For example, Cobalt prices fell over 30% in 2019, despite
+                                rising global electric vehicle sales.</p>
+                        </div>
+
+                        <div class="example-box">
+                            <h3 class="font-semibold text-lg mb-2 flex items-center">
+                                <i class="fas fa-seedling mr-2 text-yellow-600"></i>Pecan Business (Commodity Market)
+                            </h3>
+                            <p>The U.S. pecan industry faces market fragmentation (pecans grow across several states and
+                                20-30% are from wild groves) and lacks the grower cartels that coordinate supply and
+                                pricing for walnuts and almonds. Strong Chinese demand (starting around 2007/2009)
+                                combined with finite supply pushed prices up dramatically (e.g., price of a pound in the
+                                shell nearly doubled in three years). Shellers (middlemen) struggled because they faced
+                                volatile prices and difficulty securing nuts before Chinese buyers. This market
+                                demonstrates price-taking behavior among growers who sell to the highest bidder.</p>
+                        </div>
+
+                        <div class="example-box">
+                            <h3 class="font-semibold text-lg mb-2 flex items-center">
+                                <i class="fas fa-oil-can mr-2 text-yellow-600"></i>Greek Olive Oil Industry
+                            </h3>
+                            <p>Greece is the world's third-largest producer, but only 4% of branded olive oil sold
+                                worldwide is Greek. Most Greek producers focus on selling bulk oil, which yields quick
+                                cash but low margins (as little as 10 to 20 euro cents a liter for a middleman). This
+                                suggests they are operating in a highly competitive, commodity-like bulk market where
+                                lack of investment, bureaucracy, and scarce bank lending prevent them from transitioning
+                                to the higher-margin branded market.</p>
+                        </div>
+
+                        <div class="example-box">
+                            <h3 class="font-semibold text-lg mb-2 flex items-center">
+                                <i class="fas fa-utensils mr-2 text-yellow-600"></i>Restaurant Industry (Oversupply)
+                            </h3>
+                            <p>The U.S. restaurant industry experienced a significant shakeout due to oversupply; the
+                                number of restaurants grew faster than the population between 2006 and 2014. Increased
+                                competition from rival sources of prepared meals (like meal-kit delivery) exacerbated
+                                the problem, leading to bankruptcies and restaurant closures. This environment indicates
+                                intense competition, typical of market structures where entry is easy and returns are
+                                strained. In response, many chains slashed prices to fill seats, but this only
+                                accelerated
+                                the cycle of low margins and exits, reinforcing the price-taking nature of competitive
+                                markets.</p>
+                        </div>
+
+                        <div class="example-box">
+                            <h3 class="font-semibold text-lg mb-2 flex items-center">
+                                <i class="fas fa-car mr-2 text-yellow-600"></i>Electric Vehicle Market Disappointment
+                            </h3>
+                            <p>The electric vehicle (EV) market was touted as a revolutionary "gold rush" in the late
+                                2010s, with soaring demand for battery materials like lithium and cobalt driving prices
+                                to record highs. Investors and miners rushed in, anticipating sustained shortages.
+                                However, by 2018-2019, slower-than-expected EV adoption and increased supply led to
+                                sharp
+                                price declines (e.g., cobalt prices fell over 30% in 2019 despite rising global EV
+                                sales).
+                                This boom-bust cycle exemplifies how commodity markets operate under perfect
+                                competition:
+                                easy entry attracts overinvestment, leading to oversupply, price collapses, and zero
+                                long-run profits for producers who remain price takers.</p>
+                        </div>
+
+                        <div class="example-box">
+                            <h3 class="font-semibold text-lg mb-2 flex items-center">
+                                <i class="fas fa-leaf mr-2 text-yellow-600"></i>Greek Olive Oil Industry
+                            </h3>
+                            <p>Greece, the world's third-largest olive oil producer, struggles to capture value in a
+                                highly competitive global market. Despite producing high-quality oil, only 4% of
+                                worldwide branded olive oil sales are Greek. Most production is sold in bulk at low
+                                margins (as little as 10-20 euro cents per liter), due to industry fragmentation (pecans
+                                grow across states with no coordination), bureaucracy, and limited access to branding
+                                and distribution channels. This illustrates perfect competition where producers are
+                                price takers, unable to earn economic profits without differentiation or market power,
+                                and highlights the challenges of transitioning from commodity bulk markets to premium
+                                branded segments.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Continue with other sections following similar pattern... -->
+                <!-- ===== 3b-INTRO ===== -->
+                <div id="3b-intro" class="section-content">
+                    <h1 class="text-4xl font-bold text-gray-800 mb-6">
+                        Lesson 3b: Pricing with Market Power
+                    </h1>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                        Lesson 3b explores pricing strategies employed by firms that possess market power—the ability to
+                        raise price without losing all customers to competition. This lesson details profit maximization
+                        principles, the benchmark case of single price per unit, and methods of price discrimination
+                        used to capture potential consumer surplus.
+                    </p>
+
+                    <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                        <h2 class="text-xl font-semibold mb-4">Market Structures with Market Power</h2>
+                        <ul class="space-y-3 text-gray-700">
+                            <li><strong>Monopoly:</strong> A market structure where a firm is the sole seller, and
+                                effective barriers prevent entry. The demand curve faced by the firm is the industry
+                                demand curve.</li>
+                            <li><strong>Monopolistic Competition:</strong> A hybrid structure with many firms, selling
+                                differentiated products, and having free entry. Although firms have market power (due to
+                                product differentiation), competition prevents them from earning economic profits in the
+                                long run.</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- ===== 3b-SINGLE-PRICE ===== -->
+                <div id="3b-single-price" class="section-content">
+                    <h1 class="text-3xl font-bold text-gray-800 mb-6">
+                        Benchmark Case – Single Price per Unit
+                    </h1>
+
+                    <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                        Firms with market power face a downward-sloping demand curve, meaning they must lower the price
+                        to sell more units.
+                    </p>
+
+                    <div class="bg-white rounded-lg shadow p-6 mb-6">
+                        <h2 class="text-xl font-semibold mb-3">Profit-maximising rule</h2>
+                        <div class="equation-box">
+                            MR = MC
+                        </div>
+                        <p class="text-gray-700">
+                            A firm maximizes profit by setting the quantity where marginal revenue equals marginal cost,
+                            then read the price off the demand curve at that quantity.
+                        </p>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow p-6 mb-6">
+                        <h2 class="text-xl font-semibold mb-3">Pricing Rule (Monopoly)</h2>
+                        <p class="text-gray-700 mb-4">
+                            For a single price per unit, the optimal price (P*) is determined by the demand curve at the
+                            profit-maximizing quantity.
+                        </p>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <h2 class="text-xl font-semibold mb-3">Inverse-elasticity pricing rule</h2>
+                        <div class="equation-box">
+                            P* = MC* ÷ (1 – 1/η*)
+                        </div>
+                        <p class="text-gray-700">
+                            The optimal price markup above marginal cost depends on the elasticity of demand (η). The
+                            optimal monopolistic price can be expressed using the inverse elasticity pricing rule. The
+                            more elastic demand, the smaller the markup.
+                        </p>
+                    </div>
+                </div>
+                <!-- ===== 3b-PRICE-DISCRIMINATION ===== -->
+                <div id="3b-price-discrimination" class="section-content">
+                    <h1 class="text-3xl font-bold text-gray-800 mb-6">
+                        Price Discrimination
+                    </h1>
+
+                    <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                        Price discrimination occurs when a firm charges different prices to customers not related to
+                        differences in production or distribution costs. This requires heterogeneous consumer demands
+                        (different price elasticities).
+                    </p>
+
+                    <div class="grid md:grid-cols-3 gap-6 mb-8">
+                        <div class="keyword-card">
+                            <h3 class="font-semibold mb-1">1<sup>st</sup>-degree (Personalised)</h3>
+                            <p class="text-sm">Charging each customer the maximum amount they are willing to pay (their
+                                reservation price). This extracts the maximum consumer surplus and is theoretically the
+                                most efficient outcome.</p>
+                        </div>
+                        <div class="keyword-card">
+                            <h3 class="font-semibold mb-1">3<sup>rd</sup>-degree (Group)</h3>
+                            <p class="text-sm">Segmenting the market into groups and setting a different price for each
+                                group. Examples include different prices charged to students versus non-students for
+                                college tuition, or varying prices based on age, income, or time of purchase.</p>
+                        </div>
+                        <div class="keyword-card">
+                            <h3 class="font-semibold mb-1">Two-part tariff</h3>
+                            <p class="text-sm">Pricing that requires customers to pay an upfront fee (capital charge)
+                                for the right to buy the product, and then a price per unit (usage charge), often set at
+                                or near marginal cost. This strategy can capture surplus from customers with high
+                                demands.</p>
+                        </div>
+                    </div>
+                    <div class="example-box">
+                        <h3 class="font-semibold flex items-center">
+                            <i class="fas fa-razor mr-2 text-yellow-600"></i>Gillette razor & blades
+                        </h3>
+                        <p class="mt-2">Gillette sells razors (the capital good) and replacement blades (the
+                            consumables). This is a classic two-part tariff strategy.</p>
+                    </div>
+                </div>
+                <!-- ===== 3b-EXAMPLES ===== -->
+                <div id="3b-examples" class="section-content">
+                    <h1 class="text-3xl font-bold text-gray-800 mb-6">
+                        Real-World Pricing Stories
+                    </h1>
+                    <div class="space-y-6">
+                        <div class="example-box">
+                            <h3 class="font-semibold">Parker Hannifin – 800 000 SKUs</h3>
+                            <p>Abandoned cost-plus (cost + 35 %) for “strategic pricing”:
+                                classified parts A→Special; raised niche items 3 %-60 %;
+                                added ≈ $200 m operating income.</p>
+                        </div>
+                        Copy
+                        <div class="example-box">
+                            <h3 class="font-semibold">Pfizer Ibrance – $9 850 / month</h3>
+                            <p>Price just below $10 k threshold that triggers insurer red-tape;
+                                balances revenue vs. access; competitor Afinitor later raised price
+                                but Pfizer held line to maintain payer goodwill.</p>
+                        </div>
+
+                        <div class="example-box">
+                            <h3 class="font-semibold">Gillette vs. Dollar Shave Club</h3>
+                            <p>Start-ups eroded Gillette’s >70 % share to 54 % (2010-16);
+                                Gillette cut list prices up to 20 % to defend volume—showing
+                                even strong brands can lose pricing power. In response, Gillette
+                                introduced subscription services and bundled offerings to retain
+                                customers, demonstrating how firms with market power must adapt
+                                pricing strategies to counter disruptive low-cost entrants.</p>
+                        </div>
+
+                        <div class="example-box">
+                            <h3 class="font-semibold">Anatomy of Drug Pricing</h3>
+                            <p>Pharmaceutical companies often charge high prices for new drugs,
+                                justified by R&D costs (averaging $2.6 billion per drug) and patent
+                                protections that grant temporary monopoly power. However, critics
+                                argue this leads to excessive profits, with drugs like Sovaldi
+                                priced at $84,000 for a 12-week course. This pricing reflects
+                                market power from patents, but also sparks debates on access and
+                                affordability, highlighting the trade-offs in pricing with market
+                                power.</p>
+                        </div>
+
+                        <div class="example-box">
+                            <h3 class="font-semibold">Seeking Perfect Prices: Dynamic Pricing Strategies</h3>
+                            <p>Firms use advanced analytics to implement dynamic pricing, adjusting
+                                prices based on demand, time, and customer segments. Airlines and
+                                hotels employ yield management to maximize revenue, charging higher
+                                prices during peak times. E-commerce platforms like Amazon use
+                                algorithms for real-time price adjustments. This approach captures
+                                more consumer surplus and optimizes profits, but requires careful
+                                consideration of customer perceptions and regulatory constraints.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- ===== 3c-INTRO ===== -->
+                <div id="3c-intro" class="section-content">
+                    <h1 class="text-4xl font-bold text-gray-800 mb-6">
+                        Lesson 3c: Economics of Strategy – Game Theory
+                    </h1>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        How oligopolists make decisions when payoffs depend on rivals’ actions, and why
+                        individually rational choices can yield jointly poor outcomes.
+                    </p>
+                </div>
+                <!-- ===== 3c-OLIGOPOLY ===== -->
+                <div id="3c-oligopoly" class="section-content">
+                    <h1 class="text-3xl font-bold text-gray-800 mb-6">
+                        Oligopoly & Strategic Interaction
+                    </h1>
+                    <div class="keyword-card mb-6">
+                        <h3 class="font-semibold text-lg">Oligopoly defined</h3>
+                        <p>Few large firms, high barriers, mutual inter-dependence; best analysed with
+                            simultaneous-move or sequential games.</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <h2 class="text-xl font-semibold mb-3">Key concepts</h2>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li><strong>Strategy profile:</strong> set of choices by all players.</li>
+                            <li><strong>Dominant strategy:</strong> best for a player no matter what rivals do.</li>
+                            <li><strong>Nash equilibrium:</strong> no player can gain by unilaterally deviating.</li>
+                            <li><strong>Prisoners’ / cartel dilemma:</strong> equilibrium payoffs < cooperative
+                                    payoffs.</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- ===== 3c-GAME-THEORY ===== -->
+                <div id="3c-game-theory" class="section-content">
+                    <h1 class="text-3xl font-bold text-gray-800 mb-6">
+                        Game-Theory Toolkit
+                    </h1>
+                    <div class="grid md:grid-cols-2 gap-6 mb-8">
+                        <div class="bg-white rounded-lg shadow p-6">
+                            <h3 class="font-semibold mb-3">Normal-form example (Boeing vs. Airbus)</h3>
+                            <table class="w-full text-center border">
+                                <thead class="bg-gray-100">
+                                    <tr>
+                                        <th class="border p-2"></th>
+                                        <th class="border p-2">Boeing High</th>
+                                        <th class="border p-2">Boeing Low</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="border p-2 font-semibold">Airbus High</td>
+                                        <td class="border p-2">750, 750</td>
+                                        <td class="border p-2">0, 1 000</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border p-2 font-semibold">Airbus Low</td>
+                                        <td class="border p-2">1 000, 0</td>
+                                        <td class="border p-2">500, 500</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p class="text-sm text-gray-600 mt-2">Low-price is a dominant strategy → both price low
+                                (500, 500) even
+                                though (750, 750) is jointly better.</p>
+                        </div>
+                        Copy
+                        <div class="bg-white rounded-lg shadow p-6">
+                            <h3 class="font-semibold mb-3">Cartel instability</h3>
+                            <p class="mb-3">Each member’s temptation to cheat:</p>
+                            <div class="equation-box text-sm">π<sub>cheat</sub> > π<sub>cooperate</sub> ⇒ cartel
+                                collapses without
+                                enforcement.</div>
+                            <p class="text-sm text-gray-600 mt-3">Explains OPEC squabbles, lysine, vitamins, etc.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- ===== 3c-STRATEGIC-EXAMPLES ===== -->
+                <div id="3c-strategic-examples" class="section-content">
+                    <h1 class="text-3xl font-bold text-gray-800 mb-6">
+                        Strategic Mistakes & Tacit Games
+                    </h1>
+                    <div class="space-y-6">
+                        <div class="example-box">
+                            <h3 class="font-semibold">Airbus A380 – mis-read market trend</h3>
+                            <p>Bet on hub congestion & 4-engine jumbos; ignored twin-engine efficiency (B-787, A-350).
+                                Program cancelled after 251 deliveries; break-even ~420.</p>
+                        </div>
+                        Copy
+                        <div class="example-box">
+                            <h3 class="font-semibold">Cruise lines – capacity commitment trap</h3>
+                            <p>Ships ordered years ahead; demand shocks → 2-for-1 deals, 70 % discounts to fill berths.
+                            </p>
+                        </div>
+
+                        <div class="example-box">
+                            <h3 class="font-semibold">Frontier vs. United at Denver hub</h3>
+                            <p>Frontier flew thin schedules, off-bank times, medium fares—high enough to avoid
+                                United’s capacity wrath, low enough to skim price-sensitive travellers. Classic
+                                "puppy-dog" strategy: look small & non-threatening. This illustrates how entrants
+                                can use strategic positioning to avoid retaliation in oligopolistic markets.</p>
+                        </div>
+
+                        <div class="example-box">
+                            <h3 class="font-semibold">Boeing vs. Airbus Confrontation</h3>
+                            <p>The duopoly in large commercial aircraft has led to intense strategic interactions,
+                                including pricing wars and subsidies. Airbus's entry challenged Boeing's dominance,
+                                leading to retaliatory pricing and government interventions. This rivalry exemplifies
+                                how oligopolists engage in game-theoretic strategies, where actions like capacity
+                                expansions or price cuts are designed to deter entry or gain market share, often
+                                resulting in suboptimal outcomes for both firms.</p>
+                        </div>
+
+                        <div class="example-box">
+                            <h3 class="font-semibold">Cruise Industry Overcapacity</h3>
+                            <p>Cruise lines invested heavily in mega-ships, anticipating demand growth, but faced
+                                overcapacity when demand slowed. Lines like Carnival and Royal Caribbean slashed
+                                prices with 2-for-1 deals and deep discounts to fill berths, leading to price wars
+                                and reduced profitability. This demonstrates the prisoner's dilemma in oligopolies,
+                                where individual capacity decisions lead to collective harm, exacerbated by long
+                                lead times in ship construction.</p>
+                        </div>
+
+                        <div class="example-box">
+                            <h3 class="font-semibold">Upstarts' Entry Tactics in Oligopolies</h3>
+                            <p>New entrants in concentrated markets often use asymmetric strategies to challenge
+                                incumbents. For instance, low-cost carriers like Southwest disrupted legacy airlines
+                                by targeting underserved routes and offering no-frills service. In tech, companies
+                                like Netflix entered the entertainment oligopoly by focusing on streaming, avoiding
+                                direct competition with cable giants initially. These tactics highlight how game
+                                theory informs entry strategies, emphasizing speed, niche targeting, and signaling
+                                to deter aggressive responses from established players.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- ---------- end 3b & 3c ---------- -->
+                <!-- Glossary Section -->
+                <div id="glossary" class="section-content">
+                    <h1 class="text-4xl font-bold text-gray-800 mb-6">Keywords & Glossary</h1>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h2 class="text-2xl font-semibold mb-4">Key Terms</h2>
+                            <div class="space-y-4">
+                                <div class="keyword-card">
+                                    <h3 class="font-semibold">Market Structure</h3>
+                                    <p class="text-sm">The characteristics of a market defined by number of
+                                        buyers/sellers, product differentiation, and entry conditions.</p>
+                                </div>
+                                <div class="keyword-card">
+                                    <h3 class="font-semibold">Perfect Competition</h3>
+                                    <p class="text-sm">Market structure with many sellers, homogeneous products, and
+                                        easy entry/exit, resulting in firms being price takers.</p>
+                                </div>
+                                <div class="keyword-card">
+                                    <h3 class="font-semibold">Market Power</h3>
+                                    <p class="text-sm">The ability of a firm to raise its price without losing all its
+                                        customers.</p>
+                                </div>
+                                <div class="keyword-card">
+                                    <h3 class="font-semibold">Monopoly</h3>
+                                    <p class="text-sm">Market structure where a single firm supplies the entire market;
+                                        effective barriers to entry exist.</p>
+                                </div>
+                                <div class="keyword-card">
+                                    <h3 class="font-semibold">Monopolistic Competition</h3>
+                                    <p class="text-sm">Hybrid market structure with many firms, differentiated products,
+                                        and free entry.</p>
+                                </div>
+                                <div class="keyword-card">
+                                    <h3 class="font-semibold">Oligopoly</h3>
+                                    <p class="text-sm">Market structure dominated by a few large firms; actions of one
+                                        firm heavily impact others.</p>
+                                </div>
+                                <div class="keyword-card">
+                                    <h3 class="font-semibold">Game Theory</h3>
+                                    <p class="text-sm">General analysis of strategic interaction, used to predict
+                                        outcomes when decisions depend on rivals' actions.</p>
+                                </div>
+                                <div class="keyword-card">
+                                    <h3 class="font-semibold">Nash Equilibrium</h3>
+                                    <p class="text-sm">An outcome where no firm has incentive to unilaterally change its
+                                        action, given the action of the rival.</p>
+                                </div>
+                                <div class="keyword-card">
+                                    <h3 class="font-semibold">Dominant Strategy</h3>
+                                    <p class="text-sm">A strategy that is optimal for a firm regardless of what its
+                                        rival does.</p>
+                                </div>
+                                <div class="keyword-card">
+                                    <h3 class="font-semibold">SSNIP Criterion</h3>
+                                    <p class="text-sm">Small but Significant Non-transitory Increase in Price; used in
+                                        competitor identification and market definition.</p>
+                                </div>
+                                <div class="keyword-card">
+                                    <h3 class="font-semibold">Price Discrimination</h3>
+                                    <p class="text-sm">Charging different prices to different customers for reasons
+                                        unrelated to cost differences.</p>
+                                </div>
+                                <div class="keyword-card">
+                                    <h3 class="font-semibold">Cartel</h3>
+                                    <p class="text-sm">Formal agreement among firms to cooperate in setting price and
+                                        output levels.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-2xl font-semibold mb-4">Key Equations</h2>
+                            <div class="space-y-4">
+                                <div class="equation-box">
+                                    <h3 class="font-semibold">Profit Maximization</h3>
+                                    <p>MR = MC</p>
+                                </div>
+                                <div class="equation-box">
+                                    <h3 class="font-semibold">Optimal Monopoly Price</h3>
+                                    <p>P* = MC* / (1 - 1/η*)</p>
+                                </div>
+                                <div class="equation-box">
+                                    <h3 class="font-semibold">Perfect Competition</h3>
+                                    <p>P = MC</p>
+                                </div>
+                                <div class="equation-box">
+                                    <h3 class="font-semibold">Percentage Contribution Margin</h3>
+                                    <p>PCM = (P − MC) / P</p>
+                                </div>
+                                <div class="equation-box">
+                                    <h3 class="font-semibold">Cross-Price Elasticity</h3>
+                                    <p>η<sub>Q<sub>X</sub>,P<sub>Y</sub></sub> = %ΔQ<sub>X</sub> / %ΔP<sub>Y</sub></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.section-content').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+
+            // Update navigation active state
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            event.currentTarget.classList.add('active');
+        }
+
+        function toggleSubsection(lessonId) {
+            const subSection = document.getElementById(lessonId + '-sub');
+            const icon = document.getElementById(lessonId + '-icon');
+
+            if (subSection.classList.contains('expanded')) {
+                subSection.classList.remove('expanded');
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                subSection.classList.add('expanded');
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+    </script>
+</body>
+
+</html>

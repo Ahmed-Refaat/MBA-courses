@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 2b: Horizontal Boundaries, Economies of Scale, and Economies of Scope</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .section-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #a6c0fe 0%, #f68084 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .code-block {
+            background: #f8f9fa;
+            border-left: 4px solid #007bff;
+            padding: 1rem;
+            font-family: 'Courier New', monospace;
+        }
+
+        .sidebar-hidden {
+            width: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .main-full {
+            margin-left: 0;
+        }
+
+        nav a.active {
+            background-color: #374151;
+            border-left: 4px solid #3b82f6;
+        }
+    </style>
+</head>
+
+<body class="text-gray-800 flex min-h-screen">
+    <nav id="sidebar"
+        class="w-1/6 bg-gradient-to-b from-gray-900 to-gray-800 text-white p-3 fixed h-full overflow-y-auto transition-all duration-300 ease-in-out shadow-xl z-10 border-r border-gray-700">
+        <div class="flex justify-between items-center mb-4">
+            <h2 class="text-xl font-bold">Navigation</h2>
+            <button id="sidebar-toggle" class="text-white hover:text-gray-300 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                    </path>
+                </svg>
+            </button>
+        </div>
+        <ul class="space-y-2">
+            <li><a href="#introduction" class="block py-2 px-4 rounded hover:bg-gray-700">Introduction</a></li>
+            <li><a href="#lesson-2b" class="block py-2 px-4 rounded hover:bg-gray-700">Lesson 2b: Horizontal
+                    Boundaries</a></li>
+            <li><a href="#economies-of-scale" class="block py-2 px-4 rounded hover:bg-gray-700 pl-6">Economies of
+                    Scale</a></li>
+            <li><a href="#economies-of-scope" class="block py-2 px-4 rounded hover:bg-gray-700 pl-6">Economies of
+                    Scope</a></li>
+            <li><a href="#examples" class="block py-2 px-4 rounded hover:bg-gray-700 pl-6">Examples</a></li>
+            <li><a href="#main-stream" class="block py-2 px-4 rounded hover:bg-gray-700 pl-6">Main Stream</a></li>
+            <li><a href="#problem-questions" class="block py-2 px-4 rounded hover:bg-gray-700">Problem Questions &
+                    Solutions</a></li>
+            <li><a href="#abbreviations-keywords" class="block py-2 px-4 rounded hover:bg-gray-700">Abbreviations &
+                    Keywords</a></li>
+        </ul>
+    </nav>
+    <main id="main" class="flex-1 p-8 overflow-y-auto max-w-4xl mx-auto ml-1/4 transition-all duration-300 ease-in-out">
+        <header class="text-center mb-16 relative" id="introduction">
+            <button id="sidebar-toggle-main"
+                class="absolute left-0 top-0 mt-4 ml-4 text-gray-800 hover:text-gray-600 focus:outline-none lg:hidden">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                </svg>
+            </button>
+            <h1 class="text-5xl font-bold text-gray-800 mb-4 highlight">Lesson 2b: Horizontal Boundaries (Economies of
+                Scale and Scope)</h1>
+            <p class="text-xl text-gray-600">Comprehensive overview of production theory, costs, and firm boundaries
+                including horizontal and vertical integration strategies.</p>
+        </header>
+
+
+
+        <section class="section-card p-8 mb-12" id="lesson-2b">
+            <h2 class="text-3xl font-semibold mb-6 text-blue-600">Lesson 2b: Horizontal Boundaries (Economies of Scale
+                and Scope)</h2>
+            <p class="mb-6 text-lg">This section focuses on the advantages and disadvantages of operating at different
+                scales (how much output is produced) and scopes (how many different products are produced), derived
+                primarily from BDSS Ch 2.</p>
+        </section>
+
+        <div class="mb-8 flex justify-center">
+            <img src="e4fe0960-271c-4a99-b460-5ddda8b23a2d.jpg" alt="MBA Lesson 2b Image"
+                class="max-w-full max-h-screen object-contain rounded-lg shadow-lg">
+        </div>
+
+        <section class="section-card p-8 mb-12" id="detailed-explanation">
+            <h2 class="text-3xl font-semibold mb-6 text-blue-600">1. Detailed Explanation</h2>
+            <p class="mb-6 text-lg">The Horizontal Boundaries of a firm define how much of the market it serves and what
+                range of products and services it offers. The key drivers of these boundaries are economies of scale and
+                economies of scope.</p>
+
+            <h3 class="text-2xl font-semibold mb-4 text-green-600" id="economies-of-scale">Economies of Scale ("Bigger
+                is Better in Volume")
+            </h3>
+            <img src="economies_of_scale.jpg" alt="Factory illustrating economies of scale"
+                class="w-full h-64 object-cover rounded-lg mb-4">
+            <p class="mb-4">This is the core concept that long-run average cost per unit of production decreases as the
+                total quantity of output increases. A firm that can achieve economies of scale has a powerful
+                competitive advantage over smaller rivals. There are several reasons why this occurs:</p>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-6">
+                <div>
+                    <h4 class="text-xl font-semibold mb-2 text-purple-600">Spreading of Fixed Costs & Indivisibilities
+                    </h4>
+                    <p>This is the most common source. Many inputs are indivisible, meaning they cannot be scaled down
+                        below a minimum size, creating a fixed cost. A large production volume spreads this fixed cost
+                        over more units, lowering the average fixed cost per unit.</p>
+                    <p class="italic mt-2">Business Context: A $50 million factory, a $300 million R&D project for a new
+                        drug, or a $5 million national advertising campaign all represent large, indivisible fixed
+                        costs. The firm that can sell the most units will have the lowest per-unit cost allocated to
+                        these essential investments.</p>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold mb-2 text-purple-600">Increased Productivity of Variable Inputs
+                        (Specialization)</h4>
+                    <p>Larger firms can support a greater division of labor. Workers can specialize in specific tasks
+                        and become highly proficient, leading to increased speed and quality. This is the principle
+                        behind the assembly line.</p>
+                </div>
+            </div>
+
+            <div class="mb-6">
+                <h4 class="text-xl font-semibold mb-2 text-purple-600">Physical Properties of Production (The
+                    Cube-Square Rule)</h4>
+                <p>This engineering principle states that as the volume of a container (like a pipe or a tank)
+                    increases, its surface area increases by a smaller proportion. Since production capacity is often
+                    related to volume and cost is often related to surface area (materials needed), this creates a
+                    natural economy of scale.</p>
+                <p class="italic mt-2">Business Context: Doubling the diameter of an oil pipeline more than doubles its
+                    carrying capacity but does not double the material cost to build it, thus lowering the
+                    transportation cost per barrel.</p>
+                <img src="cube_square_rule.jpg" alt="Illustration of cube-square rule with geometric shapes"
+                    class="w-full h-64 object-cover rounded-lg mb-4">
+            </div>
+
+            <h4 class="text-xl font-semibold mb-2 text-red-600">Diseconomies of Scale ("Too Big to Succeed")</h4>
+            <p class="mb-4">Eventually, average costs may begin to rise as a firm gets too large. This happens due to:
+            </p>
+            <ul class="list-disc list-inside mb-4 space-y-2">
+                <li><strong>Bureaucracy & Coordination Costs:</strong> Larger organizations become more complex, slowing
+                    down communication and decision-making.</li>
+                <li><strong>Agency Problems:</strong> It becomes harder for managers to monitor employee effort, leading
+                    to potential slack.</li>
+                <li><strong>Spreading Specialized Resources Too Thin:</strong> A star CEO, a brilliant engineering team,
+                    or a celebrity chef cannot be in two places at once. As the firm expands, these key resources get
+                    diluted.</li>
+            </ul>
+            <img src="diseconomies_of_scale.jpg" alt="Illustration of diseconomies of scale with complex organization"
+                class="w-full h-64 object-cover rounded-lg mb-4">
+
+            <h3 class="text-2xl font-semibold mb-4 text-green-600" id="economies-of-scope">Economies of Scope ("Better
+                Together in Variety")
+            </h3>
+            <p>This refers to the cost savings a firm achieves by producing a variety of different products using the
+                same resources. It's cheaper to produce two or more different products together in one firm than it is
+                to produce them in separate firms.</p>
+            <p class="italic mt-2">Business Context: Economies of scope are the economic driver behind diversification
+                and brand extensions. They occur when a company can leverage a core competence, a shared input, or a
+                strong brand name across multiple product lines. A company might use shared machinery, a common
+                distribution network, or a single marketing campaign for multiple products.</p>
+            <img src="economies_of_scope.jpg" alt="Illustration of economies of scope with multiple products"
+                class="w-full h-64 object-cover rounded-lg mb-4">
+        </section>
+
+        <section class="section-card p-8 mb-12" id="examples">
+            <h2 class="text-3xl font-semibold mb-6 text-blue-600">2. Examples</h2>
+
+            <h3 class="text-2xl font-semibold mb-4 text-green-600">Examples of Economies of Scale:</h3>
+            <ul class="list-disc list-inside mb-6 space-y-2">
+                <li><strong>Automotive Manufacturing (Toyota, Ford):</strong> The massive fixed cost of a car
+                    manufacturing plant (robotics, assembly lines) is spread over millions of vehicles produced,
+                    dramatically lowering the cost per car.</li>
+                <li><strong>Software (Microsoft):</strong> The cost to develop Microsoft Windows is billions of dollars
+                    (a fixed cost). However, the marginal cost to produce and sell one more digital license is nearly
+                    zero. This creates immense economies of scale.</li>
+                <li><strong>Logistics (Amazon, Walmart):</strong> These companies invest billions in massive, automated
+                    fulfillment centers and sophisticated logistics networks. This high fixed cost allows them to
+                    achieve a lower cost per package shipped than any smaller competitor could. The article "Amazon
+                    Robots Get Ready for Christmas" highlights this, showing how the fixed investment in Kiva robots
+                    increases efficiency and lowers the variable cost of labor per item picked.</li>
+            </ul>
+
+            <h3 class="text-2xl font-semibold mb-4 text-green-600">Examples of Economies of Scope:</h3>
+            <ul class="list-disc list-inside mb-6 space-y-2">
+                <li><strong>Consumer Goods (Procter & Gamble):</strong> P&G leverages its world-class R&D, brand
+                    management expertise, and distribution relationships with retailers across a wide array of products,
+                    from Tide laundry detergent to Crest toothpaste.</li>
+                <li><strong>Honda:</strong> Honda uses its core competence in engine manufacturing to produce cars,
+                    motorcycles, lawnmowers, and generators, all sharing technology and brand reputation.</li>
+                <li><strong>Chicken and Alligator Farming:</strong> The article "New Role for the Gator: Chicken
+                    Farmer's Friend" provides a unique example. Dead chickens, which are a waste-disposal cost for a
+                    chicken farmer, become a free food input for raising alligators. By combining these two seemingly
+                    unrelated businesses, the firm creates an economy of scope.</li>
+            </ul>
+        </section>
+
+        <section class="section-card p-8 mb-12" id="important-words">
+            <h2 class="text-3xl font-semibold mb-6 text-blue-600">3. Important Words and Their Meanings</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                    <ul class="space-y-4">
+                        <li><strong class="text-purple-600">Horizontal Boundaries:</strong> The scope of a firm's
+                            activities, covering the variety of products it produces and the volume of its output.</li>
+                        <li><strong class="text-purple-600">Economies of Scale:</strong> The reduction in long-run
+                            average cost per unit that arises from an increase in the volume of production.</li>
+                        <li><strong class="text-purple-600">Diseconomies of Scale:</strong> The increase in long-run
+                            average cost per unit that can occur when a firm becomes too large and inefficient.</li>
+                        <li><strong class="text-purple-600">Minimum Efficient Scale (MES):</strong> The lowest level of
+                            output at which a firm can minimize its long-run average costs. Reaching MES is often
+                            critical for survival in competitive industries.</li>
+                    </ul>
+                </div>
+                <div>
+                    <ul class="space-y-4">
+                        <li><strong class="text-purple-600">Economies of Scope:</strong> The cost savings that result
+                            when a firm produces a variety of products instead of specializing in just one.</li>
+                        <li><strong class="text-purple-600">Indivisibility:</strong> An input's inability to be scaled
+                            down below a certain minimum size, leading to a fixed cost.</li>
+                        <li><strong class="text-purple-600">Average Cost (AC):</strong> The total cost of production
+                            divided by the total number of units produced (TC/Q).</li>
+                        <li><strong class="text-purple-600">Cube-Square Rule:</strong> A physical principle stating that
+                            as an object's volume increases by a certain proportion, its surface area increases by a
+                            smaller proportion.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-card p-8 mb-12" id="equations">
+            <h2 class="text-3xl font-semibold mb-6 text-blue-600">4. Equations and How to Calculate</h2>
+
+            <h3 class="text-2xl font-semibold mb-4 text-green-600">Calculating Average Cost to Identify Economies of
+                Scale:</h3>
+            <p class="mb-4">The primary formula is for Average Cost (AC).</p>
+            <div class="code-block mb-4">
+                <strong>Formula:</strong> AC = Total Cost (TC) / Quantity (Q)
+            </div>
+            <p class="mb-4"><strong>How to Use It:</strong> You have economies of scale if, as you increase your
+                production quantity (Q), your average cost per unit (AC) goes down.</p>
+            <p class="mb-4"><strong>Calculation Example:</strong></p>
+            <div class="code-block mb-4">
+                A company produces 10,000 units at a Total Cost of $500,000.<br>
+                AC₁ = $500,000 / 10,000 units = $50 per unit<br>
+                It then increases production to 50,000 units, and its Total Cost rises to $2,000,000.<br>
+                AC₂ = $2,000,000 / 50,000 units = $40 per unit<br>
+                Since the Average Cost has fallen from $50 to $40 per unit, the firm is experiencing economies of scale
+                over this range of output.
+            </div>
+
+            <h3 class="text-2xl font-semibold mb-4 text-green-600">The Formal Condition for Economies of Scope:</h3>
+            <p class="mb-4">This is more of a theoretical test than a simple calculation, but it defines the concept
+                mathematically.</p>
+            <div class="code-block mb-4">
+                <strong>Formula:</strong> A firm exhibits economies of scope if:<br>
+                TC(Qx, Qy) < TC(Qx, 0) + TC(0, Qy) </div>
+                    <p class="mb-4"><strong>Explanation of Terms:</strong></p>
+                    <ul class="list-disc list-inside mb-4 space-y-2">
+                        <li><strong>TC(Qx, Qy):</strong> The total cost for a single firm to produce quantity Qx of good
+                            X and quantity Qy of good Y together.</li>
+                        <li><strong>TC(Qx, 0):</strong> The total cost if a specialized firm produces only quantity Qx
+                            of good X.</li>
+                        <li><strong>TC(0, Qy):</strong> The total cost if a different specialized firm produces only
+                            quantity Qy of good Y.</li>
+                    </ul>
+                    <p class="mb-4"><strong>How to Interpret It:</strong> The formula states that economies of scope
+                        exist if the cost of producing two goods jointly is less than the sum of the costs of producing
+                        them separately in two different firms.</p>
+                    <p class="mb-4"><strong>Calculation Example (from the textbook):</strong></p>
+                    <div class="code-block">
+                        Cost to produce 100 million message notes alone: TC(100m, 0) = $55 million<br>
+                        Cost to produce 600 million rolls of tape alone: TC(0, 600m) = $220 million<br>
+                        Total cost if produced separately = $55m + 220m = $275 million<br>
+                        Cost to produce both together in one firm: TC(100m, 600m) = $245 million<br>
+                        Since $245 million < $275 million, this production process exhibits strong economies of scope.
+                            </div>
+        </section>
+
+        <section class="section-card p-8 mb-12" id="main-stream">
+            <h2 class="text-3xl font-semibold mb-6 text-blue-600">Main Stream</h2>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="text-xl font-semibold mb-2 text-purple-600">Indivisibilities and Spreading Fixed
+                            Costs</h4>
+                        <p>Large lumpy assets—think Boeing 787 simulators or semiconductor fabs—come in one size only;
+                            you cannot buy "half a clean-room". Because these fixed costs are indivisible, the average
+                            cost curve plunges as output climbs: the same $100 million wafer plant baked into 1 million
+                            chips adds $100 per unit, but spread over 10 million wafers it drops to $10.
+                            Indivisibilities therefore push firms toward giant scale, explaining why global chip-makers
+                            cluster in a handful of mega-fabs rather than thousands of boutique foundries.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold mb-2 text-purple-600">Inventories (Lower Stock-outs)</h4>
+                        <p>Scale grants statistical economies of inventory: a national e-commerce giant holding safety
+                            stock in one regional "mega-hub" faces less absolute variability than ten local warehouses.
+                            With higher turnover and lower stock-out risk, the firm slashes emergency freight, lost
+                            sales and customer-service costs—another subtle but powerful source of declining average
+                            cost as volume rises.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold mb-2 text-purple-600">Average Cost (AC) Declines as Output (Q)
+                            Increases</h4>
+                        <p>The signature shape of modern manufacturing: AC slides downward because fixed costs are
+                            diluted, variable inputs are used more efficiently, and diseconomies have not yet kicked in.
+                            This downward-sloping region is the economist's playground for pricing strategy: firms can
+                            under-cut rivals, gain share, and still raise margin simply by climbing the volume curve.
+                        </p>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold mb-2 text-purple-600">Cube-Square Rule (Physical Properties)
+                        </h4>
+                        <p>Mother Nature loves scale: double the linear dimensions of a spherical LNG tank and volume
+                            rises eight-fold while surface area only four-folds. Because heat loss, steel cost and
+                            welding labour grow with surface area, energy per unit cargo plummets—a physics-based EOS
+                            that rewards oil majors for building Q-Max ships the size of small towns.</p>
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="text-xl font-semibold mb-2 text-purple-600">Specialization and Increased Productivity
+                        </h4>
+                        <p>Adam Smith's pin factory on steroids: at 50,000 units per day Tesla dedicates entire robots
+                            to one bolt, slashing cycle time and rework. Greater throughput justifies narrower tasks,
+                            which lifts learning speed and reduces error rates—a self-reinforcing loop where scale
+                            begets speed, speed begets lower unit cost, and lower cost begets still more scale.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold mb-2 text-purple-600">Learning by Doing (Learning Curve)</h4>
+                        <p>Every doubling of cumulative output can shave 15–25 % off unit cost in semiconductor fabs—not
+                            because the plant gets bigger, but because engineers tweak recipes, reduce defect rates and
+                            speed yield ramps. The learning curve is path-dependent: first movers lock in a cost edge
+                            that late entrants must buy their way down, creating persistent scale-based moats.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold mb-2 text-purple-600">Purchasing (Quantity Discounts)</h4>
+                        <p>Volume concentrates bargaining power: when Walmart orders one billion toothpaste tubes,
+                            suppliers voluntarily slide down their own cost curves and pass part of the rebate to the
+                            retailer. These back-of-the-invoice discounts are pure margin for the buyer, turning
+                            procurement into a profit centre and flattening rivals who lack the clout to command the
+                            same terms.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold mb-2 text-purple-600">Advertising / Marketing (Cost per
+                            Potential Customer Falls)</h4>
+                        <p>A $5 million Super-Bowl spot reaching 100 million viewers costs 5 ¢ per viewer—cheaper than
+                            printing and mailing a coupon. Scale transforms fixed marketing outlays into tiny per-unit
+                            levies, letting Coca-Cola outspend craft cola while spending less per can sold—a media
+                            economies-of-scale that reinforces brand dominance.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-8 space-y-6">
+                <div>
+                    <h4 class="text-xl font-semibold mb-2 text-purple-600">Optimal Plant Size (Minimum LRAC)</h4>
+                    <p>Engineers design single-train ammonia plants at 1,500 tonnes/day because thermal efficiency peaks
+                        at that pressure-vessel diameter; anything smaller wastes heat, anything larger stresses
+                        metallurgy. This technological sweet spot becomes the lowest point on the long-run average cost
+                        curve—the optimal plant size every entrant must replicate to survive price wars.</p>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold mb-2 text-purple-600">Minimum Efficient Scale (MES)</h4>
+                    <p>The smallest output at which LRAC bottoms out—for passenger jets roughly 400 aircraft/year
+                        (Airbus A320 family). Produce below MES and unit cost skyrockets; produce at or above MES and
+                        you match the cost leader. MES sets the admission ticket for an industry.</p>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold mb-2 text-purple-600">MES Relative to Market Size Determines Market
+                        Structure</h4>
+                    <p>If global demand is only 500 units and MES = 400, the planet cannot profitably host more than one
+                        firm—a natural monopoly (wide-body jets). If MES = 1 % of market, dozens of boutiques can
+                        coexist (craft beer). Thus MES/market ratio is the silent architect of concentration ratios.</p>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold mb-2 text-purple-600">Cargo Ships (Use Mega-Ships for Lower Cost
+                        per Container)</h4>
+                    <p>Maersk's Triple-E class carries 18,000 TEU at 13 % less fuel per box than 13,000 TEU
+                        vessels—cube-square rule at sea. Port fees, crew wages and bunker fuel are spread over more
+                        containers, pushing average cost per TEU below any rival route and locking in hub-and-spoke
+                        geography.</p>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold mb-2 text-purple-600">↔️ Horizontal Boundaries of the Firm (Lesson
+                        2b)</h4>
+                    <p>How much output (not how many products) the firm chooses to produce before diseconomies outweigh
+                        economies. Horizontal expansion stops where LRAC starts to rise—the right-hand boundary of the
+                        cost U-shape.</p>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold mb-2 text-red-600">AC Rises as Q Increases (Diseconomies of Scale)
+                    </h4>
+                    <p>Beyond optimal scale, bureaucracy thickens, communication distorts, and motivation dilutes—each
+                        extra unit costs more. This upward-sloping region is the warning flag that size has become a
+                        liability, not an asset.</p>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold mb-2 text-red-600">Incentive and Bureaucracy Effects</h4>
+                    <p>Layer upon layer of middle management slows decision cycles; performance metrics become noisy, so
+                        bonus schemes weaken. Free-rider problems emerge as individual contribution is harder to
+                        observe, shrinking marginal productivity and lifting unit cost.</p>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold mb-2 text-red-600">Spreading Specialized Resources Too Thin</h4>
+                    <p>A world-class battery chemist who guided 5 projects can barely supervise 50; error rates climb
+                        and innovation stalls. Key talent becomes the bottleneck, forcing duplication of high-skill
+                        heads—diseconomy via dilution.</p>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold mb-2 text-red-600">Labor Costs (Higher Wages in Larger Firms)</h4>
+                    <p>Gigantic firms often unionize or pay efficiency wages to retain 10,000+ workers, pushing wage
+                        premium over small rivals. Higher average wage per hour feeds directly into higher average cost
+                        per unit once scale exceeds the sweet spot.</p>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold mb-2 text-green-600">Economies of Scope (EOSp)</h4>
+                    <p>Producing two products in one plant is cheaper than producing each alone because shared inputs,
+                        joint branding and common distribution spread fixed costs wider. EOSp bends the cost curve
+                        downward even after EOS is exhausted, giving conglomerates a second wind.</p>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold mb-2 text-green-600">Dairy / Alligator Farming Example (Waste
+                        Recycling)</h4>
+                    <p>A dairy plant churns milk, cheese and ice cream using the same cold-chain, lab-testing and
+                        logistics—one R&D team tweaks fat content for three SKUs. Likewise, alligator farms sell meat,
+                        hides and tourist shows, recycling animal waste into pet-food pellets—scope, not scale, shrinks
+                        per-product cost.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-card p-8 mb-12" id="problem-questions">
+            <h2 class="text-3xl font-semibold mb-6 text-blue-600">Lesson 2b: Problem Questions and Solutions</h2>
+
+            <div class="mb-8">
+                <h3 class="text-2xl font-semibold mb-4 text-green-600">3) Hypermarkets and Economies of
+                    Scale/Diseconomies of Scale</h3>
+                <p class="mb-4"><strong>Question:</strong> In recent decades, many countries have seen the rise of
+                    "hypermarkets", enormous retail stores that sell groceries, household goods, hardware, and other
+                    products under one roof. What are some possible economies of scale these stores might experience?
+                    Are there any possibilities for diseconomies of scale? Explain. (17 points)</p>
+
+                <div class="bg-gray-50 p-4 rounded-lg mb-4">
+                    <h4 class="text-lg font-semibold mb-2 text-blue-600">Solution:</h4>
+                    <p class="mb-4">Hypermarkets can experience significant economies of scale, which means their
+                        long-run average costs per unit decrease as their size and output increase. Some possibilities
+                        include:</p>
+
+                    <h5 class="font-semibold text-green-600 mb-2">Economies of Scale:</h5>
+                    <ul class="list-disc list-inside mb-4 space-y-1">
+                        <li><strong>Purchasing Power:</strong> By buying products in enormous volumes, hypermarkets can
+                            negotiate substantial discounts from suppliers, lowering their cost of goods sold.</li>
+                        <li><strong>Marketing Economies:</strong> A single advertising campaign (e.g., a national TV ad
+                            or weekly flyer) can cover a massive sales volume, making the marketing cost per item sold
+                            extremely low.</li>
+                        <li><strong>Logistical and Distribution Efficiencies:</strong> Large chains can invest in highly
+                            efficient, centralized warehousing and transportation networks, reducing the cost of
+                            stocking and distributing each product.</li>
+                        <li><strong>Managerial Specialization:</strong> Hypermarkets can afford to hire specialized
+                            managers for areas like finance, supply chain management, and marketing, leading to greater
+                            operational efficiency.</li>
+                        <li><strong>Financial Economies:</strong> Large, established corporations can often borrow money
+                            at lower interest rates than smaller businesses, reducing their cost of capital for
+                            expansion or operations.</li>
+                    </ul>
+
+                    <p class="mb-4">Yes, there are also possibilities for diseconomies of scale, where the long-run
+                        average costs per unit begin to increase as the firm becomes too large.</p>
+
+                    <h5 class="font-semibold text-red-600 mb-2">Diseconomies of Scale:</h5>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li><strong>Coordination and Communication Issues:</strong> As the organization grows, it can
+                            become bureaucratic and slow. Communication between top management and individual store
+                            employees can become ineffective, leading to poor decision-making and a disconnect from
+                            customer needs.</li>
+                        <li><strong>Worker Alienation:</strong> In a massive corporation, employees may feel like a
+                            "small cog in a big machine," leading to lower morale, reduced productivity, and poorer
+                            customer service.</li>
+                        <li><strong>Managerial Inefficiencies:</strong> The business may become too large and complex
+                            for a single management team to control effectively, leading to waste, duplication of
+                            effort, and a lack of clear strategic direction across its many departments and locations.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mb-8">
+                <h3 class="text-2xl font-semibold mb-4 text-green-600">4) Boeing and Airbus: Labor-to-Capital Ratios
+                </h3>
+                <p class="mb-4"><strong>Question:</strong> The American company Boeing and the European company Airbus
+                    are the two main players in the market for large commercial aircraft production. They produce
+                    roughly the same volume of aircraft each year, both use capital and labor to produce their planes,
+                    and both have access the similar production technologies. A key difference is that in Europe, labor
+                    costs are significantly higher than in the US. Using concepts from this lesson, would you expect
+                    these two companies to have the same ratio of labor to capital? Why or why not, and explain. (17
+                    points)</p>
+
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <h4 class="text-lg font-semibold mb-2 text-blue-600">Solution:</h4>
+                    <p class="mb-4">No, I would not expect Boeing and Airbus to have the same ratio of labor to capital.
+                        I would expect Airbus to have a lower labor-to-capital ratio (i.e., be more capital-intensive)
+                        than Boeing.</p>
+
+                    <p class="mb-4">The core reason is the difference in the relative prices of inputs. The problem
+                        states that labor costs are significantly higher in Europe than in the US. In production, firms
+                        aim to minimize the cost of producing a certain level of output. When one input (labor) becomes
+                        relatively more expensive, a profit-maximizing firm will substitute away from that expensive
+                        input and use more of the relatively cheaper input (capital).</p>
+
+                    <p>Therefore, Airbus, facing high European labor costs, has a strong economic incentive to invest
+                        more heavily in automation, robotics, and other capital equipment to reduce its reliance on
+                        expensive labor. Boeing, facing relatively cheaper labor in the US, would not have the same
+                        level of incentive to make this substitution and would likely use a more labor-intensive
+                        production process compared to Airbus. Both companies have access to similar technology, so
+                        their different choices in production mix would be driven primarily by the need to minimize
+                        costs based on the different input prices they face.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-card p-8 mb-12" id="abbreviations-keywords">
+            <h2 class="text-3xl font-semibold mb-6 text-blue-600">Abbreviations & Keywords</h2>
+
+            <h3 class="text-2xl font-semibold mb-4 text-green-600">Lesson 2a: Production and Costs</h3>
+            <div class="overflow-x-auto mb-8">
+                <table class="w-full table-auto border-collapse border border-gray-300 text-sm">
+                    <thead>
+                        <tr class="bg-gray-100">
+                            <th class="border border-gray-300 p-2">Abbreviation / Symbol</th>
+                            <th class="border border-gray-300 p-2">Meaning</th>
+                            <th class="border border-gray-300 p-2">Relation to Keywords / Equation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="border border-gray-300 p-2">Q</td>
+                            <td class="border border-gray-300 p-2">Output</td>
+                            <td class="border border-gray-300 p-2">Quantity of output produced. Appears in production
+                                functions like Q=f(L,K).</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 p-2">L</td>
+                            <td class="border border-gray-300 p-2">Labor</td>
+                            <td class="border border-gray-300 p-2">An input factor in the production process. Appears in
+                                production functions like Q=f(L,K) and efficiency equations like MP L /w.</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 p-2">K</td>
+                            <td class="border border-gray-300 p-2">Capital</td>
+                            <td class="border border-gray-300 p-2">An input factor in the production process (e.g.,
+                                machines, buildings). Can be fixed in the short run. Appears in production functions
+                                like Q=f(L,K).</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 p-2">MPL</td>
+                            <td class="border border-gray-300 p-2">Marginal Product of Labor</td>
+                            <td class="border border-gray-300 p-2">Measures the change in output (ΔQ) resulting from a
+                                change in labor (ΔL): MP L =ΔQ/ΔL. Used in determining the long-run efficient
+                                combination of inputs.</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 p-2">MPK</td>
+                            <td class="border border-gray-300 p-2">Marginal Product of Capital</td>
+                            <td class="border border-gray-300 p-2">Measures the change in output (ΔQ) resulting from a
+                                change in capital (ΔK): MP K =ΔQ/ΔK. Used in determining the long-run efficient
+                                combination of inputs.</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 p-2">TC</td>
+                            <td class="border border-gray-300 p-2">Total Cost</td>
+                            <td class="border border-gray-300 p-2">The sum of total fixed costs and total variable costs
+                                (TC=TFC+TVC). Also used in the explicit cost equation TC=P S S+P A A.</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 p-2">TFC</td>
+                            <td class="border border-gray-300 p-2">Total Fixed Costs</td>
+                            <td class="border border-gray-300 p-2">Costs that do not change as output (Q) goes up (e.g.,
+                                rent).</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 p-2">TVC</td>
+                            <td class="border border-gray-300 p-2">Total Variable Costs</td>
+                            <td class="border border-gray-300 p-2">Costs that increase as output (Q) increases (e.g.,
+                                materials, labor).</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 p-2">ATC</td>
+                            <td class="border border-gray-300 p-2">Average Total Cost</td>
+                            <td class="border border-gray-300 p-2">Total costs per unit of output: ATC=TC/Q. Also equals
+                                AFC+AVC.</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 p-2">MC</td>
+                            <td class="border border-gray-300 p-2">Marginal Cost</td>
+                            <td class="border border-gray-300 p-2">Measures the change in total cost as output is
+                                expanded by one unit: MC=ΔTC/ΔQ.</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 p-2">Q=f(x1,x2,...,xm)</td>
+                            <td class="border border-gray-300 p-2">General Production Function</td>
+                            <td class="border border-gray-300 p-2">Describes the relationship between the firm's n
+                                outputs (y's) and its m inputs (x's).</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 p-2">TC=P S S+P A A</td>
+                            <td class="border border-gray-300 p-2">Total Cost (Example)</td>
+                            <td class="border border-gray-300 p-2">Used in the context of minimizing cost, where P S and
+                                P A are the prices of steel (S) and aluminum (A) respectively.</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 p-2">MP L /w=MP K /v</td>
+                            <td class="border border-gray-300 p-2">Efficient Input Combination</td>
+                            <td class="border border-gray-300 p-2">The condition for the long-run efficient combination
+                                of inputs, where w and v are the input prices of labor (L) and capital (K).</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 p-2">MES</td>
+                            <td class="border border-gray-300 p-2">Minimum Efficient Scale</td>
+                            <td class="border border-gray-300 p-2">Refers to the level of output where the long-run
+                                average cost (LRAC) is minimized.</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 p-2">S</td>
+                            <td class="border border-gray-300 p-2">Steel (input)</td>
+                            <td class="border border-gray-300 p-2">Used as an input variable in the specific production
+                                function example Q=S 1/2 A 1/2 .</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 p-2">A</td>
+                            <td class="border border-gray-300 p-2">Aluminum (input)</td>
+                            <td class="border border-gray-300 p-2">Used as an input variable in the specific production
+                                function example Q=S 1/2 A 1/2 .</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4 class="text-xl font-semibold mb-2 text-purple-600">Keywords</h4>
+            <p class="mb-6">Economic Profits, Implicit Costs, Opportunity Cost, Law of Diminishing Returns, Returns to
+                Scale, Cost Curves</p>
+
+            <h3 class="text-2xl font-semibold mb-4 text-green-600">Lesson 2b: Horizontal Boundaries (Economies of Scale
+                and Scope)</h3>
+            <div class="overflow-x-auto mb-8">
+                <table class="w-full table-auto border-collapse border border-gray-300 text-sm">
+                    <thead>
+                        <tr class="bg-gray-100">
+                            <th class="border border-gray-300 p-2">Abbreviation / Symbol</th>
+                            <th class="border border-gray-300 p-2">Meaning</th>
+                            <th class="border border-gray-300 p-2">Relation to Keywords / Equation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="border border-gray-300 p-2">LRAC</td>
+                            <td class="border border-gray-300 p-2">Long-Run Average Cost</td>
+                            <td class="border border-gray-300 p-2">The minimum possible average total cost for producing
+                                each output level. The shape of the LRAC curve reveals if a firm experiences economies
+                                of scale (falling LRAC) or diseconomies of scale (rising LRAC).</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 p-2">SRAC / SRATC</td>
+                            <td class="border border-gray-300 p-2">Short-Run Average Cost / Short-Run Average Total Cost
+                            </td>
+                            <td class="border border-gray-300 p-2">The average cost curve for a given plant size. The
+                                LRAC curve is the "envelope" of all SRATC curves.</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 p-2">AC</td>
+                            <td class="border border-gray-300 p-2">Average Cost</td>
+                            <td class="border border-gray-300 p-2">Used generally to mean cost per unit of output.</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 p-2">MES</td>
+                            <td class="border border-gray-300 p-2">Minimum Efficient Scale</td>
+                            <td class="border border-gray-300 p-2">The smallest plant size at which the long-run average
+                                cost (LRAC) first reaches its minimum. Explains market structure.</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 p-2">R&D</td>
+                            <td class="border border-gray-300 p-2">Research & Development</td>
+                            <td class="border border-gray-300 p-2">Investment that can lead to economies of scale and
+                                scope.</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 p-2">TC(Q X ,Q Y )</td>
+                            <td class="border border-gray-300 p-2">Total Cost of producing X and Y</td>
+                            <td class="border border-gray-300 p-2">Used in the definition of economies of scope.</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 p-2">TC(Q X ,Q Y )<TC(Q X ,0)+TC(0,Q Y )</td>
+                            <td class="border border-gray-300 p-2">Economies of Scope</td>
+                            <td class="border border-gray-300 p-2">This formula shows that the total cost of producing
+                                output Q X and output Q Y together is less than the cost of producing them separately.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4 class="text-xl font-semibold mb-2 text-purple-600">Keywords</h4>
+            <p class="mb-4">Economies of Scale (Econs to scale), Diseconomies of Scale (Disecons to scale),
+                Indivisibilities, Cube-Square Rule, Learning Curve, Economies of Scope, MES and market structure</p>
+        </section>
+        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                document.querySelectorAll('nav a').forEach(anchor => {
+                    anchor.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        const target = document.querySelector(this.getAttribute('href'));
+                        if (target) {
+                            target.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+                    });
+                });
+
+                const sidebar = document.getElementById('sidebar');
+                const main = document.getElementById('main');
+                const toggleBtn = document.getElementById('sidebar-toggle');
+                const toggleMainBtn = document.getElementById('sidebar-toggle-main');
+                const toggleMainIcon = toggleMainBtn.querySelector('svg');
+
+                function toggleSidebar() {
+                    sidebar.classList.toggle('sidebar-hidden');
+                    main.classList.toggle('main-full');
+                    if (sidebar.classList.contains('sidebar-hidden')) {
+                        toggleMainIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
+                    } else {
+                        toggleMainIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>';
+                    }
+                }
+
+                toggleBtn.addEventListener('click', toggleSidebar);
+                toggleMainBtn.addEventListener('click', toggleSidebar);
+            });
+        </script>
+</body>
+
+</html>
